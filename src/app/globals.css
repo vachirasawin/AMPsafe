@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 35rem;
+  --breakpoint-xxs: 30rem;
+}
+
+body {
+  background: #f7f7f7;
+  color: #171717;
+  box-sizing: border-box;
+  font-family: "Noto Sans Thai", Helvetica, sans-serif;
+  overflow: auto;
+}
