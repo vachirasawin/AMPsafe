@@ -1,5 +1,4 @@
 import "./globals.css";
-import AOSProvider from "./AOSProvider/page";
 
 export const metadata = {
   title: "AMPsafe",
@@ -15,9 +14,7 @@ export default function RootLayout({ children }) {
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity = "sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossOrigin = "anonymous" referrerPolicy = "no-referrer"/>
       </head>
       <body className = "antialiased">
-        <AOSProvider>
-          {children}
-        </AOSProvider>
+        {children}
       </body>
     </html>
   );

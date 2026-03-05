@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // import from components
 
-function Navbar({ home, aboutUs, dashboard }) {
+function Navbar({ home, aboutUs, dashboard, session, signIn, signUp }) {
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -24,12 +24,12 @@ function Navbar({ home, aboutUs, dashboard }) {
 
     return (
         <div className = "relative">
-            <div className = "px-4 bg-[#f7f7f7] border-b border-[#ececec] z-30 fixed top-0 left-0 w-screen">
+            <div className = "px-4 bg-white border-b border-[#ececec] z-30 fixed top-0 left-0 w-screen">
                 <div className = "container mx-auto justify-self-center flex justify-between items-center h-24">
                     <div className = "flex items-center gap-2">
                         <Image src = "/logo.png" unoptimized alt = "AMPsafe Logo" width = {1000} height = {1000} className = "w-11"/>
                         <h1 className = "text-2xl font-bold text-[#171717]">
-                            <span className = "text-[#eab308]">AMP</span>
+                            <span className = "text-[#eab949]">AMP</span>
                             <span>safe</span>
                         </h1>
                     </div>
@@ -38,6 +38,25 @@ function Navbar({ home, aboutUs, dashboard }) {
                         <Link href = "/about us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
                         <Link href = "/dashboard" className = {`${dashboard && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Dashboard</Link>
                     </div>
+                    {session ? (
+                        <div className = "flex gap-4">
+                            {dashboard && (
+                                <div className = "bg-[#171717] text-[#f7f7f7] shadow-md w-32 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden">
+                                    <i className = "fa-solid fa-plug-circle-plus"></i>
+                                    <p>Add Device</p>
+                                </div>
+                            )}
+                            <div className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden">
+                                <i className = "fa-solid fa-arrow-right-from-bracket"></i>
+                                <p>Sign Out</p>
+                            </div>
+                        </div>
+                    ) : (
+                        <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`border-2 border-[#171717] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
+                            <i className = "fa-solid fa-arrow-right-to-bracket"></i>
+                            {signIn ? "Sign Up" : "Sign In"}
+                        </Link>
+                    )}
                     <div onClick = {() => setMenu(!menu)} className = {`w-10 h-10 flex justify-center items-center rounded-xl text-base border-2 border-[#171717] ${menu ? "bg-white text-[#171717]" : "bg-[#171717] text-white"} min-lg:hidden`}><i className = "fa-solid fa-bars"></i></div>
                 </div>
             </div>
@@ -47,6 +66,25 @@ function Navbar({ home, aboutUs, dashboard }) {
                     <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
                     <Link href = "/dashboard" className = {dashboard && "text-[#171717]"}>Dashboard</Link>
                 </div>
+                {session ? (
+                    <div className = "flex flex-col gap-4">
+                        {dashboard && (
+                            <div className = "bg-[#171717] text-[#f7f7f7] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer">
+                                <i className = "fa-solid fa-plug-circle-plus"></i>
+                                <p>Add Device</p>
+                            </div>
+                        )}
+                        <div className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer">
+                            <i className = "fa-solid fa-arrow-right-from-bracket"></i>
+                            <p>Sign Out</p>
+                        </div>
+                    </div>
+                ) : (
+                    <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`border-2 border-[#171717] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
+                        <i className = "fa-solid fa-arrow-right-to-bracket"></i>
+                        {signIn ? "Sign Up" : "Sign In"}
+                    </Link>
+                )}
             </div>
         </div>
     );

@@ -1,0 +1,103 @@
+"use client";
+
+// import from Next.js
+import React, { useState, useEffect }  from "react";
+import Link from "next/link";
+
+// import from components
+import Navbar from "../components/Navbar";
+import Input from "../components/Input";
+import Button from "../components/Button";
+
+function Page() {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    return (
+        <div>
+            <Navbar signUp/>
+            <div className = "p-4">
+                <from className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
+                    <div className = "bg-white rounded-2xl shadow-md">
+                        <div className = "flex flex-col gap-4 p-4 md:p-8">
+                            <div className = "flex gap-4 max-md:flex-col">
+                                <Input
+                                    name = "First Name"
+                                    placeholder = "First Name"
+                                    type = "text"
+                                    onChange = {(e) => setFirstName(e.target.value)}
+                                    symbol = "fa-solid fa-user"
+                                />
+                                <Input
+                                    name = "Last Name"
+                                    placeholder = "Last Name"
+                                    type = "text"
+                                    onChange = {(e) => setLastName(e.target.value)}
+                                    symbol = "fa-solid fa-user"
+                                />
+                            </div>
+                            <Input
+                                name = "Email"
+                                placeholder = "Email Address"
+                                type = "email"
+                                onChange = {(e) => setEmail(e.target.value)}
+                                symbol = "fa-solid fa-at"
+                            />
+                            <div className = "flex gap-4 max-md:flex-col">
+                                <Input
+                                    name = "Password"
+                                    placeholder = "Password"
+                                    type = {showPassword ? "text" : "password"}
+                                    onChange = {(e) => setPassword(e.target.value)}
+                                    symbol = {`fa-solid ${showPassword ? "fa-lock-open" : "fa-lock"}`}
+                                    onClick = {() => setShowPassword(!showPassword)}
+                                />
+                                <Input
+                                    name = "Confirm Password"
+                                    placeholder = "Confirm Password"
+                                    type = {showConfirmPassword ? "text" : "password"}
+                                    onChange = {(e) => setConfirmPassword(e.target.value)}
+                                    symbol = {`fa-solid ${showConfirmPassword ? "fa-lock-open" : "fa-lock"}`}
+                                    onClick = {() => setShowConfirmPassword(!showConfirmPassword)}
+                                />
+                            </div>
+                            <div className = "flex justify-center gap-x-2 text-sm">
+                                <p>Already have an account?</p><Link href = "/signin" className = "text-blue-500">Sign In</Link>
+                            </div>
+                            <div className = "flex gap-4 max-xxs:flex-col">
+                                <Button
+                                    name = "Sign Up"
+                                    type = "submit"
+                                    onClick = {() => {setShowPassword(false); setShowConfirmPassword (false);}}
+                                />
+                                <Button
+                                    name = "Cancel"
+                                    type = "reset"
+                                    onClick = {() => {setShowPassword(false); setShowConfirmPassword (false);}}
+                                />
+                            </div>
+                        </div>
+                        <div className = "flex h-12 border-t border-[#ececec] max-md:w-full w-[35.125rem] text-lg">
+                            <div onClick = {() => signIn("github")} className = "w-1/3 rounded-bl-2xl border-r border-[#ececec] flex justify-center items-center text-[#171717] hover:bg-[#171717] hover:text-white transition-all duration-200">
+                                <i className = "fa-brands fa-github"></i>
+                            </div>
+                            <div onClick = {() => signIn("google")} className = "w-1/3 border-r border-[#ececec] flex justify-center items-center text-[#171717] hover:bg-[#171717] hover:text-white transition-all duration-200">
+                                <i className = "fa-brands fa-google"></i>
+                            </div>
+                            <div onClick = {() => signIn("facebook")} className = "w-1/3 rounded-br-2xl flex justify-center items-center text-blue-500 hover:bg-blue-500 hover:text-white transition-all duration-200">
+                                <i className = "fa-brands fa-facebook"></i>
+                            </div>
+                        </div>
+                    </div>
+                </from>
+            </div>
+        </div>
+    );
+}
+
+export default Page

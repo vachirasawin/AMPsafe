@@ -5,12 +5,12 @@ import Link from "next/link";
 
 function Card({ contents, title, subTitle, description, h, inverse, downloadType, downloadTitle }) {
     return (
-        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]" data-aos = "fade-up">
+        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
             <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
-                <div className = "flex justify-center w-full">
+                <div className = "flex justify-center w-full" data-aos = "fade-up">
                     <div className = "flex flex-col gap-2 text-center w-full justify-center items-center">
                         <div className = {`flex justify-center items-center gap-2.5 ${inverse && "flex-row-reverse flex-wrap-reverse"} flex-wrap`}>
-                            <h1 className = "text-4xl font-bold max-md:text-2x text-[#eab308]">{title}</h1>
+                            <h1 className = "text-4xl font-bold max-md:text-2x text-[#eab949]">{title}</h1>
                             {subTitle !== "-" && (
                                 <h1 className = "text-4xl font-bold max-md:text-2x">{subTitle}</h1>
                             )}
@@ -36,7 +36,7 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                                     )}
                                     <div className = "flex flex-col gap-4">
                                         <div className = "flex flex-col">
-                                            <h1 className = {`text-xl font-bold ${content.main === "true" && "text-[#eab308]"}`} dangerouslySetInnerHTML = {{ __html: content.title }}></h1>
+                                            <h1 className = {`text-xl font-bold ${content.main === "true" && "text-[#eab949]"}`} dangerouslySetInnerHTML = {{ __html: content.title }}></h1>
                                             <p className = "text-[#9497a1] text-xs font-medium" dangerouslySetInnerHTML = {{ __html: content.description }}></p>
                                         </div>
                                         <div className = "font-normal text-[#9497a1]" dangerouslySetInnerHTML = {{ __html: content.content }}></div>
@@ -45,12 +45,12 @@ function Card({ contents, title, subTitle, description, h, inverse, downloadType
                                 {content.link !== "-" && (
                                     downloadType ? (
                                         downloadTitle ? (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-[#eab308] border-2 border-[#eab308] text-white hover:text-[#eab308] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${downloadTitle}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-[#eab949] border-2 border-[#eab949] text-white hover:text-[#eab949] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${downloadTitle}` }}></a>
                                         ) : (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-[#eab308] border-2 border-[#eab308] text-white hover:text-[#eab308] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.title}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-[#eab949] border-2 border-[#eab949] text-white hover:text-[#eab949] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.title}` }}></a>
                                         )
                                     ) : (
-                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-[#eab308] border-2 border-[#eab308] text-white hover:text-[#eab308] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.title}` }}></Link>
+                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-[#eab949] border-2 border-[#eab949] text-white hover:text-[#eab949] hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.title}` }}></Link>
                                     )
                                 )}
                             </div>

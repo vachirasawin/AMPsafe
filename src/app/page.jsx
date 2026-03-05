@@ -10,6 +10,17 @@ import Card from "./components/Card";
 function Page() {
     const contentsPredict = [
         {
+            title: "Sign In",
+            image: "-",
+            extension: "-",
+            content: "เข้าสู่ระบบเพื่อใช้งาน",
+            description: "เข้าสู่ระบบ",
+            width: "-",
+            height: "-",
+            link: "/signin",
+            symbol: "fa-solid fa-arrow-right-to-bracket"
+        },
+        {
             title: "Connect System",
             description: "เชื่อมต่ออุปกรณ์",
             image: "-",
@@ -18,7 +29,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/signin",
-            symbol: "fa-solid fa-bolt"
+            symbol: "fa-solid fa-plug-circle-plus"
         },
         {
             title: "AI Monitoring",
@@ -29,7 +40,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/dashboard",
-            symbol: "fa-regular fa-lightbulb"
+            symbol: "fa-solid fa-chart-line"
         },
         {
             title: "Dashboard",
@@ -40,7 +51,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/dashboard",
-            symbol: "fa-solid fa-triangle-exclamation"
+            symbol: "fa-solid fa-table"
         }
     ]
 
