@@ -18,7 +18,7 @@ function Page() {
         <div>
             <Navbar signIn/>
             <div className = "p-4">
-                <from className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-24 justify-center">
+                <form className = "container mx-auto justify-self-center flex flex-col items-center gap-4 h-[calc(100vh-12rem)] mt-24 justify-center">
                     <div className = "bg-white rounded-2xl shadow-md">
                         <div className = "flex flex-col gap-4 p-4 md:p-8">
                             <Input
@@ -44,7 +44,7 @@ function Page() {
                                 <Button name = "Cancel" type = "reset" onClick = {() => {setShowPassword(false);}}/>
                             </div>
                         </div>
-                        <div className = "flex h-12 border-t border-[#ececec] w-[19.0625rem] max-md:w-full">
+                        <div className = "flex h-12 border-t border-[#ececec] w-full max-md:w-full">
                             <div onClick = {() => signIn("github")} className = "w-1/3 rounded-bl-2xl border-r border-[#ececec] flex justify-center items-center text-[#171717] hover:bg-[#171717] hover:text-white transition-all duration-200">
                                 <i className = "fa-brands fa-github"></i>
                             </div>
@@ -56,7 +56,7 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                </from>
+                </form>
             </div>
         </div>
     );

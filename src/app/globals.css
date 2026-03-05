@@ -5,6 +5,10 @@
   --breakpoint-xxs: 30rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #f7f7f7;
   color: #171717;

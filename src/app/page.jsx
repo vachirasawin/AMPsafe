@@ -6,9 +6,10 @@ import Navbar from "./components/Navbar";
 import Title from "./components/Title";
 import Information from "./components/Information";
 import Card from "./components/Card";
+import Footer from "./components/Footer";
 
 function Page() {
-    const contentsPredict = [
+    const contentsHowTo = [
         {
             title: "Sign In",
             image: "-",
@@ -58,13 +59,14 @@ function Page() {
     return (
         <div>
             <Navbar home/>
-            <Title image = "/industry.avif" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย"/>
+            <Title image = "/industry.avif" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย" relative/>
             <Information/>
-            <Card title = "AMPsafe" subTitle = "How to Use" description = "วิธีการใช้งาน AMPsafe" contents = {contentsPredict} h = "h-70" inverse/>
+            <Card title = "AMPsafe" subTitle = "How to Use" description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowTo} w = "min-w-72 max-w-72" h = "h-70" inverse/>
             <div className = "px-4 bg-[#f7f7f7] border-b border-[#ececec]">
                 <div className = "container mx-auto justify-self-center flex justify-center items-center">
                 </div>
             </div>
+            <Footer home/>
         </div>
     );
 }

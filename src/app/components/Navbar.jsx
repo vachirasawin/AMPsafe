@@ -7,7 +7,7 @@ import Link from "next/link";
 
 // import from components
 
-function Navbar({ home, aboutUs, dashboard, session, signIn, signUp }) {
+function Navbar({ home, aboutUs, dashboard, signIn, signUp, session }) {
     const [menu, setMenu] = useState(false);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function Navbar({ home, aboutUs, dashboard, session, signIn, signUp }) {
                     <div className = "flex items-center gap-2">
                         <Image src = "/logo.png" unoptimized alt = "AMPsafe Logo" width = {1000} height = {1000} className = "w-11"/>
                         <h1 className = "text-2xl font-bold text-[#171717]">
-                            <span className = "text-[#eab949]">AMP</span>
+                            <span className = "text-blue-500">AMP</span>
                             <span>safe</span>
                         </h1>
                     </div>

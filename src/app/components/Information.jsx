@@ -10,11 +10,11 @@ function Information() {
                     <div className = "flex flex-col gap-7 max-md:gap-4">
                         <div>
                             <h1 className = "text-5xl max-md:text-3xl font-bold text-[#171717]">
-                                <span className = "text-[#eab949]">AMP</span>
+                                <span className = "text-blue-500">AMP</span>
                                 <span>safe</span>
                             </h1>
                             <h2 className = "text-md max-md:text-xs font-medium">AI พยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย</h2>
-                            <div className = "w-36 border-2 border-[#eab949] rounded-md mt-2"></div>
+                            <div className = "w-36 border-2 border-blue-500 rounded-md mt-2"></div>
                         </div>
                         <div className = "text-[#9497a1] text-xl max-md:text-base">
                             <p>

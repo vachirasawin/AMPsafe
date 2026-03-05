@@ -3,6 +3,7 @@ import React from "react";
 
 // import from components
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Page() {
     return (
@@ -14,6 +15,7 @@ function Page() {
                     </div>
                 </div>
             </div>
+            <Footer dashboard session/>
         </div>
     );
 }

@@ -22,7 +22,7 @@ function Page() {
         <div>
             <Navbar signUp/>
             <div className = "p-4">
-                <from className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
+                <form className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
                     <div className = "bg-white rounded-2xl shadow-md">
                         <div className = "flex flex-col gap-4 p-4 md:p-8">
                             <div className = "flex gap-4 max-md:flex-col">
@@ -82,7 +82,7 @@ function Page() {
                                 />
                             </div>
                         </div>
-                        <div className = "flex h-12 border-t border-[#ececec] max-md:w-full w-[35.125rem] text-lg">
+                        <div className = "flex h-12 border-t border-[#ececec] max-md:w-full w-full text-lg">
                             <div onClick = {() => signIn("github")} className = "w-1/3 rounded-bl-2xl border-r border-[#ececec] flex justify-center items-center text-[#171717] hover:bg-[#171717] hover:text-white transition-all duration-200">
                                 <i className = "fa-brands fa-github"></i>
                             </div>
@@ -94,7 +94,7 @@ function Page() {
                             </div>
                         </div>
                     </div>
-                </from>
+                </form>
             </div>
         </div>
     );
