@@ -15,16 +15,16 @@ function Page() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('https://web-production-b804.up.railway.app/predict', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                const res = await fetch("https://web-production-b804.up.railway.app/predict", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ current: Math.random() * 10 })
                 });
                 const data = await res.json();
 
                 const newItem = {
                     name: "Machine 1",
-                    description: `${data.current} A`,
+                    description: `${Number(data.current).toFixed(2)} A`,
                     content: data.message,
                     status: data.status === "normal" ? "safe" : "dangerous"
                 };

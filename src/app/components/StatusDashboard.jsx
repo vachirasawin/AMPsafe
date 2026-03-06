@@ -5,7 +5,7 @@ import React from "react";
 
 function StatusDashboard({ contentsItem, status }) {
     return (
-        <div className = "bg-white p-8 pr-6 shadow-lg rounded-xl flex flex-col gap-4 w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem]" id = {status}>
+        <div className = "bg-white p-8 pr-6 shadow-lg rounded-xl flex flex-col gap-4 w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] scroll-mt-28" id = {status}>
             <h3 className = "font-bold text-[#171717] text-xl">
                 {status === "safe" && "Safe Devices"}
                 {status === "warning" && "Warning Devices"}

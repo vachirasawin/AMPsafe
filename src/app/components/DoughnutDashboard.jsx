@@ -7,7 +7,7 @@ import DoughnutChart from "./DoughnutChart";
 function DoughnutDashboard({ contentsItem, contentsCount}) {
     return (
         <div className = "bg-white p-8 shadow-lg rounded-xl flex flex-col gap-4 w-max max-md:w-full">
-            <h3 className = "font-bold text-[#171717] text-xl">Device Distribution</h3>
+            <h3 className = "font-bold text-[#171717] text-xl">Device Status Overview</h3>
             <DoughnutChart contentsItem = {contentsItem} showCount = "safe"/>
             <div className = "flex flex-col gap-2">
                 {contentsCount.map((item, index) => (
