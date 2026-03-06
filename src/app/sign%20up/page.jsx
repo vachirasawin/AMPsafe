@@ -3,13 +3,20 @@
 // import from Next.js
 import React, { useState, useEffect }  from "react";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { redirect } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 // import from components
 import Navbar from "../components/Navbar";
 import Input from "../components/Input";
 import Button from "../components/Button";
+import Message from "../components/Message";
 
 function Page() {
+    const { data: session } = useSession();
+    if (session) redirect ("/");
+    
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -17,12 +24,78 @@ function Page() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    
+    const [message, setMessage] = useState("");
+    const [type, setType] = useState("");
+    const [alert, setAlert] = useState(false);
+    const resetAlert = () => {
+        setAlert(false);
+        setMessage("");
+        setType("");
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+            setAlert(true);
+            setMessage("Please complete all inputs.");
+            setType("error");
+            return;
+        };
+
+        if (password != confirmPassword) {
+            setAlert(true);
+            setMessage("Passwords do not match.");
+            setType("error");
+            return;
+        };
+
+        try {
+            const responseCheckEmail = await fetch("/api/checkEmail", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ email })
+            });
+            const { userEmail } = await responseCheckEmail.json();
+            if (userEmail) {
+                setAlert(true);
+                setMessage("Email already exists.");
+                setType("error");
+                return;
+            };
+
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ firstName, lastName, email, password })
+            });
+            if (response.ok) {
+                const form = e.target;
+                form.reset();
+                setAlert(true);
+                setMessage("User registered successfully.");
+                setType("success");
+            } else {
+                setAlert(true);
+                setMessage("User registration failed.");
+                setType("error");
+            }
+        } catch (error) {
+            setAlert(true);
+            setMessage("An error occurred while registering the user.");
+            setType("error");
+        }
+    }
 
     return (
         <div>
             <Navbar signUp/>
+            <Message message = {message} type = {type} alert = {alert}/>
             <div className = "p-4">
-                <form className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
+                <form onSubmit = {handleSubmit} className = "container mx-auto justify-self-center flex flex-col items-center gap-4 min-md:h-[calc(100vh-12rem)] mt-24 justify-center">
                     <div className = "bg-white rounded-2xl shadow-md">
                         <div className = "flex flex-col gap-4 p-4 md:p-8">
                             <div className = "flex gap-4 max-md:flex-col">
@@ -30,14 +103,20 @@ function Page() {
                                     name = "First Name"
                                     placeholder = "First Name"
                                     type = "text"
-                                    onChange = {(e) => setFirstName(e.target.value)}
+                                    onChange = {(e) => {
+                                        setFirstName(e.target.value);
+                                        resetAlert();
+                                    }}
                                     symbol = "fa-solid fa-user"
                                 />
                                 <Input
                                     name = "Last Name"
                                     placeholder = "Last Name"
                                     type = "text"
-                                    onChange = {(e) => setLastName(e.target.value)}
+                                    onChange = {(e) => {
+                                        setLastName(e.target.value);
+                                        resetAlert();
+                                    }}
                                     symbol = "fa-solid fa-user"
                                 />
                             </div>
@@ -45,7 +124,10 @@ function Page() {
                                 name = "Email"
                                 placeholder = "Email Address"
                                 type = "email"
-                                onChange = {(e) => setEmail(e.target.value)}
+                                onChange = {(e) => {
+                                    setEmail(e.target.value);
+                                    resetAlert();
+                                }}
                                 symbol = "fa-solid fa-at"
                             />
                             <div className = "flex gap-4 max-md:flex-col">
@@ -53,7 +135,10 @@ function Page() {
                                     name = "Password"
                                     placeholder = "Password"
                                     type = {showPassword ? "text" : "password"}
-                                    onChange = {(e) => setPassword(e.target.value)}
+                                    onChange = {(e) => {
+                                        setPassword(e.target.value);
+                                        resetAlert();
+                                    }}
                                     symbol = {`fa-solid ${showPassword ? "fa-lock-open" : "fa-lock"}`}
                                     onClick = {() => setShowPassword(!showPassword)}
                                 />
@@ -61,7 +146,10 @@ function Page() {
                                     name = "Confirm Password"
                                     placeholder = "Confirm Password"
                                     type = {showConfirmPassword ? "text" : "password"}
-                                    onChange = {(e) => setConfirmPassword(e.target.value)}
+                                    onChange = {(e) => {
+                                        setConfirmPassword(e.target.value);
+                                        resetAlert();
+                                    }}
                                     symbol = {`fa-solid ${showConfirmPassword ? "fa-lock-open" : "fa-lock"}`}
                                     onClick = {() => setShowConfirmPassword(!showConfirmPassword)}
                                 />
@@ -73,12 +161,20 @@ function Page() {
                                 <Button
                                     name = "Sign Up"
                                     type = "submit"
-                                    onClick = {() => {setShowPassword(false); setShowConfirmPassword (false);}}
+                                    onClick = {() => {
+                                        setShowPassword(false);
+                                        setShowConfirmPassword (false);
+                                        resetAlert();
+                                    }}
                                 />
                                 <Button
                                     name = "Cancel"
                                     type = "reset"
-                                    onClick = {() => {setShowPassword(false); setShowConfirmPassword (false);}}
+                                    onClick = {() => {
+                                        setShowPassword(false);
+                                        setShowConfirmPassword (false);
+                                        resetAlert();
+                                    }}
                                 />
                             </div>
                         </div>

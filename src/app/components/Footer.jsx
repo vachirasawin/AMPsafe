@@ -4,11 +4,14 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 // import from components
 import FooterSection from "./FooterSection";
 
-function Footer({ home, aboutUs, signIn, signUp, dashboard, faqs, developers, models, session }) {
+function Footer({ home, aboutUs, signIn, signUp, dashboard, faqs, developers, models }) {
+    const { data: session } = useSession();
+    
     const [quickLink, setQuickLink] = useState(false);
     const [information, setInformation] = useState(false);
     const [modelsPage, setModelsPage] = useState(false);
@@ -38,8 +41,8 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, faqs, developers, mo
                                 </>
                             ) : (
                                 <>
-                                    <Link href = "/signin" className = {`${signIn && "text-white"}`}>Sign In</Link>
-                                    <Link href = "/signup" className = {`${signUp && "text-white"}`}>Sign Up</Link>
+                                    <Link href = "/sign%20in" className = {`${signIn && "text-white"}`}>Sign In</Link>
+                                    <Link href = "/sign%20up" className = {`${signUp && "text-white"}`}>Sign Up</Link>
                                 </>
                             )}
                         </div>

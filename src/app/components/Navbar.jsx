@@ -4,11 +4,12 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
-// import from components
-
-function Navbar({ home, aboutUs, dashboard, signIn, signUp, session }) {
+function Navbar({ home, aboutUs, dashboard, signIn, signUp }) {
     const [menu, setMenu] = useState(false);
+    const { data: session } = useSession();
 
     useEffect(() => {
         if (menu) {
@@ -40,19 +41,13 @@ function Navbar({ home, aboutUs, dashboard, signIn, signUp, session }) {
                     </div>
                     {session ? (
                         <div className = "flex gap-4">
-                            {dashboard && (
-                                <div className = "bg-[#171717] text-[#f7f7f7] shadow-md w-32 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden">
-                                    <i className = "fa-solid fa-plug-circle-plus"></i>
-                                    <p>Add Device</p>
-                                </div>
-                            )}
-                            <div className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden">
+                            <div onClick = {() => signOut()} className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden">
                                 <i className = "fa-solid fa-arrow-right-from-bracket"></i>
                                 <p>Sign Out</p>
                             </div>
                         </div>
                     ) : (
-                        <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`border-2 border-[#171717] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
+                        <Link href = {`/${signIn ? "sign%20up" : "sign%20in"}`} className = {`border-2 border-[#171717] shadow-md w-28 h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer max-lg:hidden ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
                             <i className = "fa-solid fa-arrow-right-to-bracket"></i>
                             {signIn ? "Sign Up" : "Sign In"}
                         </Link>
@@ -68,19 +63,13 @@ function Navbar({ home, aboutUs, dashboard, signIn, signUp, session }) {
                 </div>
                 {session ? (
                     <div className = "flex flex-col gap-4">
-                        {dashboard && (
-                            <div className = "bg-[#171717] text-[#f7f7f7] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer">
-                                <i className = "fa-solid fa-plug-circle-plus"></i>
-                                <p>Add Device</p>
-                            </div>
-                        )}
-                        <div className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer">
+                        <div onClick = {() => signOut()} className = "bg-[#f55555] text-[#f7f7f7] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer">
                             <i className = "fa-solid fa-arrow-right-from-bracket"></i>
                             <p>Sign Out</p>
                         </div>
                     </div>
                 ) : (
-                    <Link href = {`/${signIn ? "signup" : "signin"}`} className = {`border-2 border-[#171717] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
+                    <Link href = {`/${signIn ? "sign%20up" : "sign%20in"}`} className = {`border-2 border-[#171717] shadow-md w-full h-10 gap-2 flex justify-center items-center font-medium rounded-xl text-sm cursor-pointer ${(signIn || signUp) ? "bg-white text-[#171717]" : "bg-[#171717] text-white"}`}>
                         <i className = "fa-solid fa-arrow-right-to-bracket"></i>
                         {signIn ? "Sign Up" : "Sign In"}
                     </Link>
