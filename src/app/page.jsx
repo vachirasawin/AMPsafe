@@ -3,7 +3,7 @@ import React from "react";
 
 // import from components
 import Navbar from "./components/Navbar";
-import Title from "./components/Title";
+import Title from "./components/TitleImage";
 import Information from "./components/Information";
 import Card from "./components/Card";
 import Footer from "./components/Footer";

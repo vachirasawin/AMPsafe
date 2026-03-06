@@ -91,7 +91,7 @@ function Page() {
                                 onClick = {() => setShowPassword(!showPassword)}
                             />
                             <div className = "flex justify-center gap-x-2 text-sm">
-                                <p>Don't have an account yet?</p><Link href = "signup" className = "text-blue-500">Sign Up</Link>
+                                <p>Don't have an account yet?</p><Link href = "/sign%20up" className = "text-blue-500">Sign Up</Link>
                             </div>
                             <div className = "flex gap-4 max-xxs:flex-col">
                                 <Button name = "Sign In" type = "submit" onClick = {() => {

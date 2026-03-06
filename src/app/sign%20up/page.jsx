@@ -16,7 +16,7 @@ import Message from "../components/Message";
 function Page() {
     const { data: session } = useSession();
     if (session) redirect ("/");
-    
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -155,7 +155,7 @@ function Page() {
                                 />
                             </div>
                             <div className = "flex justify-center gap-x-2 text-sm">
-                                <p>Already have an account?</p><Link href = "/signin" className = "text-blue-500">Sign In</Link>
+                                <p>Already have an account?</p><Link href = "/sign%20in" className = "text-blue-500">Sign In</Link>
                             </div>
                             <div className = "flex gap-4 max-xxs:flex-col">
                                 <Button
