@@ -1,24 +1,27 @@
 "use client";
 
 // import from Next.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 
 // import from components
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import DoughnutDashboard from "../components/DoughnutDashboard";
-import StatusDashboard from "../components/StatusDashboard";
+import StatusDashboard from "../components/Chart/StatusDashboard";
+import DoughnutDashboard from "../components/Chart/DoughnutDashboard";
+import LineDashboard from "../components/Chart/LineDashboard";
 
 function Page() {
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
+    const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
+    const lastStatusRef = useRef(null);
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://web-production-b804.up.railway.app/predict", {
+                const res = await fetch("https://web-production-b804.up.railway.app/latest", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ current: Math.random() * 10 })
@@ -27,14 +30,28 @@ function Page() {
 
                 const newItem = {
                     name: "Machine 1",
-                    description: `${Number(data.current).toFixed(2)} A`,
-                    content: data.message,
-                    status: data.status === "normal" ? "safe" : "warning"
+                    value: `${Number(data.current).toFixed(2)} A`,
+                    status: data.status
                 };
 
                 setContentsItem(prev => [...prev.slice(-9), newItem]);
-            } catch (err) {
-                console.error("API Error:", err);
+
+                const currentStatus = data.status;
+                if (currentStatus !== lastStatusRef.current) {
+                    // await fetch("/api/logs", {
+                    //     method: "POST",
+                    //     headers: { "Content-Type": "application/json" },
+                    //     body: JSON.stringify({ 
+                    //         name: newItem.name, 
+                    //         value: Number(data.current),
+                    //         status: currentStatus 
+                    //     })
+                    // });
+
+                    lastStatusRef.current = currentStatus;
+                }
+            } catch (error) {
+                console.error("API Error:", error);
             }
         };
 
@@ -122,6 +139,7 @@ function Page() {
                             <StatusDashboard contentsItem = {session ? contentsItem : []} status = "warning"/>
                             <StatusDashboard contentsItem = {session ? contentsItem : []} status = "dangerous"/>
                             <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
+                            <LineDashboard contentsItem = {session ? contentsItem : []}/>
                         </div>
                     </div>
                 </div>
