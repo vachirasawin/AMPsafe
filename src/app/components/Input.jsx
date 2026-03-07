@@ -3,7 +3,11 @@
 // import from Next.js
 import React from "react";
 
-function Input({ name, placeholder, type, onChange, symbol, onClick }) {
+function Input({ name, placeholder, type, onChange, symbol, onClick, noAction }) {
+    const disableAction = (e) => {
+        if (noAction) e.preventDefault();
+    };
+
     return (
         <div className = "flex flex-col gap-2">
             <p className = "font-semibold">{name}</p>
@@ -18,6 +22,11 @@ function Input({ name, placeholder, type, onChange, symbol, onClick }) {
                     type = {type}
                     placeholder = {placeholder}
                     className = {`${symbol ? "w-full" : "w-60"} px-2 outline-none font-medium text-sm`}
+                    onCopy = {disableAction}
+                    onPaste = {disableAction}
+                    onCut = {disableAction}
+                    onDrop = {disableAction}
+                    onContextMenu = {disableAction}
                 />
             </div>
         </div>

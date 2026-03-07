@@ -89,6 +89,7 @@ function Page() {
                                 }}
                                 symbol = {`fa-solid ${showPassword ? "fa-lock-open" : "fa-lock"}`}
                                 onClick = {() => setShowPassword(!showPassword)}
+                                noAction
                             />
                             <div className = "flex justify-center gap-x-2 text-sm">
                                 <p>Don't have an account yet?</p><Link href = "/sign%20up" className = "text-blue-500">Sign Up</Link>
@@ -96,7 +97,6 @@ function Page() {
                             <div className = "flex gap-4 max-xxs:flex-col">
                                 <Button name = "Sign In" type = "submit" onClick = {() => {
                                     setShowPassword(false);
-                                    resetAlert();
                                 }}/>
                                 <Button name = "Cancel" type = "reset" onClick = {() => {
                                     setShowPassword(false);

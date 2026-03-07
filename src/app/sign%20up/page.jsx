@@ -46,7 +46,7 @@ function Page() {
 
         if (password != confirmPassword) {
             setAlert(true);
-            setMessage("Passwords do not match.");
+            setMessage("Password do not match.");
             setType("error");
             return;
         };
@@ -141,6 +141,7 @@ function Page() {
                                     }}
                                     symbol = {`fa-solid ${showPassword ? "fa-lock-open" : "fa-lock"}`}
                                     onClick = {() => setShowPassword(!showPassword)}
+                                    noAction
                                 />
                                 <Input
                                     name = "Confirm Password"
@@ -152,6 +153,7 @@ function Page() {
                                     }}
                                     symbol = {`fa-solid ${showConfirmPassword ? "fa-lock-open" : "fa-lock"}`}
                                     onClick = {() => setShowConfirmPassword(!showConfirmPassword)}
+                                    noAction
                                 />
                             </div>
                             <div className = "flex justify-center gap-x-2 text-sm">

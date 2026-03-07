@@ -22,7 +22,6 @@ function Page() {
     // const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
-    const [historyData, setHistoryData] = useState([]);
     const [historyCount, setHistoryCount] = useState([]);
     const lastStatusRef = useRef(null);
     useEffect(() => {
@@ -96,7 +95,14 @@ function Page() {
         }
     ]
 
-    const [name, setName] = useState("");
+    const [nameAdd, setNameAdd] = useState("");
+    const [keyAdd, setKeyAdd] = useState("");
+    const [showKeyAdd, setShowKeyAdd] = useState(false);
+    const [confirmKeyAdd, setConfirmKeyAdd] = useState("");
+    const [showConfirmKeyAdd, setShowConfirmKeyAdd] = useState(false);
+
+    const [nameDelete, setNameDelete] = useState("");
+    const [confirmNameDelete, setConfirmNameDelete] = useState("");
         
     const [message, setMessage] = useState("");
     const [type, setType] = useState("");
@@ -106,6 +112,46 @@ function Page() {
         setMessage("");
         setType("");
     };
+
+    const handleSubmitAdd = async (e) => {
+        e.preventDefault();
+
+        if (!nameAdd || !keyAdd || !confirmKeyAdd) {
+            setAlert(true);
+            setMessage("Please complete all inputs.");
+            setType("error");
+            console.log("Name NaN");
+            console.log(message, type, alert);
+            return;
+        };
+
+        if (keyAdd != confirmKeyAdd) {
+            setAlert(true);
+            setMessage("Key do not match.");
+            setType("error");
+            return;
+        };
+    }
+
+    const handleSubmitDelete = async (e) => {
+        e.preventDefault();
+
+        if (!nameDelete || !confirmNameDelete) {
+            setAlert(true);
+            setMessage("Please complete all inputs.");
+            setType("error");
+            console.log("Name NaN");
+            console.log(message, type, alert);
+            return;
+        };
+
+        if (nameDelete != confirmNameDelete) {
+            setAlert(true);
+            setMessage("Name do not match.");
+            setType("error");
+            return;
+        };
+    }
 
     return (
         <div>
@@ -129,19 +175,82 @@ function Page() {
                             <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
                                 <h3 className = "font-bold text-[#171717] text-xl">Add Device</h3>
                                 {session && (
-                                    <form className = "flex flex-col gap-2 w-full h-full">
+                                    <form onSubmit = {handleSubmitAdd} className = "flex flex-col gap-2 w-full h-full">
                                         <Input
                                             name = "Name"
                                             placeholder = "Name"
                                             typr = "text"
                                             onChange = {(e) => {
-                                                setName(e.target.value);
+                                                setNameAdd(e.target.value);
                                                 resetAlert();
                                             }}
                                             symbol = "fa-solid fa-plug"
                                         />
+                                        <Input
+                                            name = "Key"
+                                            placeholder = "Key"
+                                            type = {showKeyAdd ? "text" : "password"}
+                                            onChange = {(e) => {
+                                                setKeyAdd(e.target.value);
+                                                resetAlert();
+                                            }}
+                                            symbol = {`fa-solid ${showKeyAdd ? "fa-lock-open" : "fa-lock"}`}
+                                            onClick = {() => setShowKeyAdd(!showKeyAdd)}
+                                            noAction
+                                        />
+                                        <Input
+                                            name = "Confirm Key"
+                                            placeholder = "Confirm Key"
+                                            type = {showConfirmKeyAdd ? "text" : "password"}
+                                            onChange = {(e) => {
+                                                setConfirmKeyAdd(e.target.value);
+                                                resetAlert();
+                                            }}
+                                            symbol = {`fa-solid ${showConfirmKeyAdd ? "fa-lock-open" : "fa-lock"}`}
+                                            onClick = {() => setShowConfirmKeyAdd(!showConfirmKeyAdd)}
+                                            noAction
+                                        />
                                         <div className = "flex gap-4 max-xxs:flex-col">
                                             <Button name = "Add Device" type = "submit" onClick = {() => { resetAlert(); }}/>
+                                            <Button name = "Cancel" type = "reset" onClick = {() => { resetAlert(); }}/>
+                                        </div>
+                                    </form>
+                                )}
+                            </div>
+                        </div>
+                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden">
+                            <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
+                                <i className = "text-7xl fa-solid fa-plug-circle-minus"></i>
+                                <p className = "font-bold text-xl uppercase">Delete Device</p>
+                            </div>
+                            <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
+                                <h3 className = "font-bold text-[#171717] text-xl">Delete Device</h3>
+                                {session && (
+                                    <form onSubmit = {handleSubmitDelete} className = "flex flex-col gap-2 w-full h-full">
+                                        <Input
+                                            name = "Name"
+                                            placeholder = "Name"
+                                            typr = "text"
+                                            onChange = {(e) => {
+                                                setNameDelete(e.target.value);
+                                                resetAlert();
+                                            }}
+                                            symbol = "fa-solid fa-plug"
+                                            noAction
+                                        />
+                                        <Input
+                                            name = "Confirm Name"
+                                            placeholder = "Confirm Name"
+                                            typr = "text"
+                                            onChange = {(e) => {
+                                                setConfirmNameDelete(e.target.value);
+                                                resetAlert();
+                                            }}
+                                            symbol = "fa-solid fa-plug"
+                                            noAction
+                                        />
+                                        <div className = "flex gap-4 max-xxs:flex-col">
+                                            <Button name = "Delete Device" type = "submit" onClick = {() => { resetAlert(); }}/>
                                             <Button name = "Cancel" type = "reset" onClick = {() => { resetAlert(); }}/>
                                         </div>
                                     </form>
