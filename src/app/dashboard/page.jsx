@@ -18,8 +18,8 @@ import Button from "../components/Button";
 import Message from "../components/Message";
 
 function Page() {
-    const { data: session } = useSession();
-    // const session = true
+    // const { data: session } = useSession();
+    const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
     const [historyCount, setHistoryCount] = useState([]);
@@ -172,10 +172,10 @@ function Page() {
                                 <i className = "text-7xl fa-solid fa-plug-circle-plus"></i>
                                 <p className = "font-bold text-xl uppercase">Add Device</p>
                             </div>
-                            <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
+                            <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
                                 <h3 className = "font-bold text-[#171717] text-xl">Add Device</h3>
                                 {session && (
-                                    <form onSubmit = {handleSubmitAdd} className = "flex flex-col gap-2 w-full h-full">
+                                    <form onSubmit = {handleSubmitAdd} className = "flex flex-col gap-2 overflow-y-auto styleScrollbar pr-2 w-full h-full">
                                         <Input
                                             name = "Name"
                                             placeholder = "Name"
@@ -223,10 +223,10 @@ function Page() {
                                 <i className = "text-7xl fa-solid fa-plug-circle-minus"></i>
                                 <p className = "font-bold text-xl uppercase">Delete Device</p>
                             </div>
-                            <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
+                            <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
                                 <h3 className = "font-bold text-[#171717] text-xl">Delete Device</h3>
                                 {session && (
-                                    <form onSubmit = {handleSubmitDelete} className = "flex flex-col gap-2 w-full h-full">
+                                    <form onSubmit = {handleSubmitDelete} className = "flex flex-col gap-2 overflow-y-auto styleScrollbar pr-2 w-full h-full">
                                         <Input
                                             name = "Name"
                                             placeholder = "Name"
