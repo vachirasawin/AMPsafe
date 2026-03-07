@@ -7,62 +7,51 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register( CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler );
 
-const LineChart = ({ contentsItem }) => {
+const LineChart = ({ historyCount }) => {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        animation: { duration: 200 },
         plugins: {
             legend: { display: false },
             tooltip: { enabled: false }
         },
         scales: {
-            y: {
-                beginAtZero: true,
-                min: 0, 
-                max: 14,
-                grid: { color: "#ececec" },
-                ticks: { font: { size: 12 } }
-            },
-            x: {
-                grid: { display: false },
-                ticks: { font: { size: 12 } }
-            }
+            y: { beginAtZero: true, min: 0,  max: 6, ticks: { stepSize: 1 } },
+            x: { grid: { display: false } }
         }
     };
 
     const data = {
-        labels: contentsItem.map((_, index) => index + 1),
+        labels: historyCount.map((_, index) => index + 1),
         datasets: [
             {
                 label: "Safe",
-                data: contentsItem.map(item => item.status === 'safe' ? parseFloat(item.value) : null),
+                data: historyCount.map(item => item.safe),
                 borderColor: "#4caf50",
-                backgroundColor: "rgba(76, 175, 80, 0.1)",
-                fill: true,
-                tension: 0.4,
-                pointRadius: 4,
+                fill: false,
+                tension: 0,
+                pointRadius: 2,
                 pointBackgroundColor: "#4caf50",
                 spanGaps: true
             },
             {
                 label: "Warning",
-                data: contentsItem.map(item => item.status === 'warning' ? parseFloat(item.value) : null),
+                data: historyCount.map(item => item.warning),
                 borderColor: "#eab949",
-                backgroundColor: "rgba(234, 185, 73, 0.1)",
-                fill: true,
-                tension: 0.4,
-                pointRadius: 4,
+                fill: false,
+                tension: 0,
+                pointRadius: 2,
                 pointBackgroundColor: "#eab949",
                 spanGaps: true
             },
             {
                 label: "Dangerous",
-                data: contentsItem.map(item => item.status === 'dangerous' ? parseFloat(item.value) : null),
+                data: historyCount.map(item => item.dangerous),
                 borderColor: "#f55555",
-                backgroundColor: "rgba(245, 85, 85, 0.1)",
-                fill: true,
-                tension: 0.4,
-                pointRadius: 4,
+                fill: false,
+                tension: 0,
+                pointRadius: 2,
                 pointBackgroundColor: "#f55555",
                 spanGaps: true
             }
@@ -70,7 +59,7 @@ const LineChart = ({ contentsItem }) => {
     };
 
     return (
-        <div className="w-full h-full min-h-[300px]">
+        <div className="w-full h-full">
             <Line data = {data} options = {options} />
         </div>
     );

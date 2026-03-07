@@ -11,12 +11,15 @@ import Footer from "../components/Footer";
 import StatusDashboard from "../components/Chart/StatusDashboard";
 import DoughnutDashboard from "../components/Chart/DoughnutDashboard";
 import LineDashboard from "../components/Chart/LineDashboard";
+import BarDashboard from "../components/Chart/BarDashboard";
 
 function Page() {
-    // const { data: session } = useSession();
-    const session = true
+    const { data: session } = useSession();
+    // const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
+    const [historyData, setHistoryData] = useState([]);
+    const [historyCount, setHistoryCount] = useState([]);
     const lastStatusRef = useRef(null);
     useEffect(() => {
         const fetchData = async () => {
@@ -29,8 +32,14 @@ function Page() {
                     value: `${Number(data.current).toFixed(2)} A`,
                     status: data.status
                 };
+                setContentsItem([newItem]);
 
-                setContentsItem(prev => [...prev.slice(-9), newItem]);
+                const currentCounts = {
+                    safe: contentsItem.filter(i => i.status === 'safe').length,
+                    warning: contentsItem.filter(i => i.status === 'warning').length,
+                    dangerous: contentsItem.filter(i => i.status === 'dangerous').length
+                };
+                setHistoryCount(prev => [...prev.slice(-14), currentCounts]);
 
                 const currentStatus = data.status;
                 if (currentStatus !== lastStatusRef.current) {
@@ -54,7 +63,7 @@ function Page() {
         fetchData();
         const interval = setInterval(fetchData, 3000);
         return () => clearInterval(interval);
-    }, []);
+    }, [contentsItem]);
 
     const contentsCount = [
         {
@@ -135,7 +144,8 @@ function Page() {
                             <StatusDashboard contentsItem = {session ? contentsItem : []} status = "warning"/>
                             <StatusDashboard contentsItem = {session ? contentsItem : []} status = "dangerous"/>
                             <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
-                            <LineDashboard contentsItem = {session ? contentsItem : []}/>
+                            <LineDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
+                            <BarDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
                         </div>
                     </div>
                 </div>
