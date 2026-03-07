@@ -3,6 +3,7 @@
 // import from Next.js
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 // import from components
 import Navbar from "../components/Navbar";
@@ -11,6 +12,8 @@ import DoughnutDashboard from "../components/DoughnutDashboard";
 import StatusDashboard from "../components/StatusDashboard";
 
 function Page() {
+    const { data: session } = useSession();
+
     const [contentsItem, setContentsItem] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -25,7 +28,8 @@ function Page() {
                 const newItem = {
                     name: "Machine 1",
                     description: `${Number(data.current).toFixed(2)} A`,
-                    status: data.status === "normal" ? "safe" : "dangerous"
+                    content: data.message,
+                    status: data.status === "normal" ? "safe" : "warning"
                 };
 
                 setContentsItem(prev => [...prev.slice(-9), newItem]);
@@ -82,10 +86,14 @@ function Page() {
                                         <div className = "flex flex-col gap-4">
                                             <div className = "flex flex-col">
                                                 <h1 className = "text-xl font-bold">
-                                                    {new Intl.NumberFormat('en-US', {
-                                                        notation: item.count >= 1000 ? "compact" : "standard",
-                                                        compactDisplay: "short",
-                                                    }).format(item.count)}
+                                                    {session ? (
+                                                        new Intl.NumberFormat('en-US', {
+                                                            notation: item.count >= 1000 ? "compact" : "standard",
+                                                            compactDisplay: "short",
+                                                        }).format(item.count)
+                                                    ) : (
+                                                        0
+                                                    )}
                                                 </h1>
                                                 <p className = "text-[#9497a1] text-xs font-medium">{item.name}</p>
                                             </div>
@@ -110,10 +118,10 @@ function Page() {
                             </Link>
                         </div>
                         <div className = "flex flex-wrap gap-4 justify-center items-center">
-                            <StatusDashboard contentsItem = {contentsItem} status = "safe"/>
-                            <StatusDashboard contentsItem = {contentsItem} status = "warning"/>
-                            <StatusDashboard contentsItem = {contentsItem} status = "dangerous"/>
-                            <DoughnutDashboard contentsItem = {contentsItem} contentsCount = {contentsCount}/>
+                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "safe"/>
+                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "warning"/>
+                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "dangerous"/>
+                            <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
                         </div>
                     </div>
                 </div>
