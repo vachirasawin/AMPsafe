@@ -21,11 +21,7 @@ function Page() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://web-production-b804.up.railway.app/latest", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ current: Math.random() * 10 })
-                });
+                const res = await fetch("https://web-production-b804.up.railway.app/latest");
                 const data = await res.json();
 
                 const newItem = {

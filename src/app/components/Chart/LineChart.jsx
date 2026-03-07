@@ -13,14 +13,7 @@ const LineChart = ({ contentsItem }) => {
         maintainAspectRatio: false,
         plugins: {
             legend: { display: false },
-            tooltip: {
-                backgroundColor: "rgba(0, 0, 0, 0.8)",
-                titleFont: { size: 14 },
-                bodyFont: { size: 14 },
-                callbacks: {
-                    label: (context) => ` Current: ${context.parsed.y.toFixed(2)} A`
-                }
-            }
+            tooltip: { enabled: false }
         },
         scales: {
             y: {
@@ -34,23 +27,46 @@ const LineChart = ({ contentsItem }) => {
                 grid: { display: false },
                 ticks: { font: { size: 12 } }
             }
-        },
+        }
     };
 
     const data = {
         labels: contentsItem.map((_, index) => index + 1),
         datasets: [
             {
-                label: "Current (A)",
-                data: contentsItem.map(item => parseFloat(item.value) || 0),
+                label: "Safe",
+                data: contentsItem.map(item => item.status === 'safe' ? parseFloat(item.value) : null),
+                borderColor: "#4caf50",
+                backgroundColor: "rgba(76, 175, 80, 0.1)",
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: "#4caf50",
+                spanGaps: true
+            },
+            {
+                label: "Warning",
+                data: contentsItem.map(item => item.status === 'warning' ? parseFloat(item.value) : null),
                 borderColor: "#eab949",
                 backgroundColor: "rgba(234, 185, 73, 0.1)",
                 fill: true,
                 tension: 0.4,
                 pointRadius: 4,
                 pointBackgroundColor: "#eab949",
+                spanGaps: true
             },
-        ],
+            {
+                label: "Dangerous",
+                data: contentsItem.map(item => item.status === 'dangerous' ? parseFloat(item.value) : null),
+                borderColor: "#f55555",
+                backgroundColor: "rgba(245, 85, 85, 0.1)",
+                fill: true,
+                tension: 0.4,
+                pointRadius: 4,
+                pointBackgroundColor: "#f55555",
+                spanGaps: true
+            }
+        ]
     };
 
     return (
