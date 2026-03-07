@@ -25,7 +25,6 @@ function Page() {
                 const newItem = {
                     name: "Machine 1",
                     description: `${Number(data.current).toFixed(2)} A`,
-                    content: data.message,
                     status: data.status === "normal" ? "safe" : "dangerous"
                 };
 
@@ -40,14 +39,11 @@ function Page() {
         return () => clearInterval(interval);
     }, []);
 
-    const safeCount = contentsItem.filter(item => item.status === 'safe').length;
-    const warningCount = contentsItem.filter(item => item.status === 'warning').length;
-    const dangerousCount = contentsItem.filter(item => item.status === 'dangerous').length;
     const contentsCount = [
         {
             name: "Safe Devices",
             status: "safe",
-            count: safeCount,
+            count: contentsItem.filter(item => item.status === 'safe').length,
             color: "text-[#4caf50]",
             bg: "bg-[#4caf50]",
             symbol: "fa-solid fa-plug-circle-check"
@@ -55,7 +51,7 @@ function Page() {
         {
             name: "Warning Devices",
             status: "warning",
-            count: warningCount,
+            count: contentsItem.filter(item => item.status === 'warning').length,
             color: "text-[#eab949]",
             bg: "bg-[#eab949]",
             symbol: "fa-solid fa-plug-circle-bolt"
@@ -63,7 +59,7 @@ function Page() {
         {
             name: "Dangerous Devices",
             status: "dangerous",
-            count: dangerousCount,
+            count: contentsItem.filter(item => item.status === 'dangerous').length,
             color: "text-[#f55555]",
             bg: "bg-[#f55555]",
             symbol: "fa-solid fa-plug-circle-xmark"
@@ -78,9 +74,9 @@ function Page() {
                     <div className = "container mx-auto justify-self-center flex flex-col justify-center items-center gap-4 py-8 max-md:py-4">
                         <div className = "flex flex-wrap justify-center items-center gap-4 w-full">
                             {contentsCount.map((item, index) => (
-                                <Link href = {`/dashboard#${item.status}`} key = {index} className = "shadow-lg bg-white rounded-xl w-54 max-xxs:w-full h-max">
+                                <Link href = {`/dashboard#${item.status}`} key = {index} className = "shadow-lg bg-white rounded-xl w-56 max-xxs:w-full h-max">
                                     <div className = "py-2 px-2 flex justify-start items-center gap-4">
-                                        <div className = {`shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl ${item.color}`}>
+                                        <div className = {`shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl ${item.color} hover:scale-108 transition duration-200 ease-in-out`}>
                                             <i className = {item.symbol}></i>
                                         </div>
                                         <div className = "flex flex-col gap-4">
@@ -97,6 +93,21 @@ function Page() {
                                     </div>
                                 </Link>
                             ))}
+                            <Link href = {`/add%20devicde`} className = "shadow-lg bg-white rounded-xl w-56 max-xxs:w-full h-max">
+                                <div className = "py-2 px-2 flex justify-start items-center gap-4">
+                                    <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl text-[#171717] hover:scale-108 transition duration-200 ease-in-out">
+                                        <i className = "fa-solid fa-plug-circle-plus"></i>
+                                    </div>
+                                    <div className = "flex flex-col gap-4">
+                                        <div className = "flex flex-col">
+                                            <h1 className = "text-xl font-bold">
+                                                Add Devices
+                                            </h1>
+                                            <p className = "text-[#9497a1] text-xs font-medium">คลิกเพื่อเพิ่มอุปกรณ์</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
                         <div className = "flex flex-wrap gap-4 justify-center items-center">
                             <StatusDashboard contentsItem = {contentsItem} status = "safe"/>
