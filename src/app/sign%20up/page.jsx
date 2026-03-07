@@ -1,7 +1,7 @@
 "use client";
 
 // import from Next.js
-import React, { useState, useEffect }  from "react";
+import React, { useState }  from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { redirect } from "next/navigation";

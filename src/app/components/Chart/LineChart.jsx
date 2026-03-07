@@ -59,8 +59,8 @@ const LineChart = ({ historyCount }) => {
     };
 
     return (
-        <div className="w-full h-full">
-            <Line data = {data} options = {options} />
+        <div className = "w-full h-[16rem] max-md:h-[13rem]">
+            {historyCount.length !== 0 && (<Line data = {data} options = {options}/>)}
         </div>
     );
 };

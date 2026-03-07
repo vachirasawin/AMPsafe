@@ -9,9 +9,13 @@ import { useSession } from "next-auth/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import StatusDashboard from "../components/Chart/StatusDashboard";
-import DoughnutDashboard from "../components/Chart/DoughnutDashboard";
+import CountDashboard from "../components/Chart/CountDashboard";
 import LineDashboard from "../components/Chart/LineDashboard";
 import BarDashboard from "../components/Chart/BarDashboard";
+import DoughnutDashboard from "../components/Chart/DoughnutDashboard";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import Message from "../components/Message";
 
 function Page() {
     const { data: session } = useSession();
@@ -92,60 +96,57 @@ function Page() {
         }
     ]
 
+    const [name, setName] = useState("");
+        
+    const [message, setMessage] = useState("");
+    const [type, setType] = useState("");
+    const [alert, setAlert] = useState(false);
+    const resetAlert = () => {
+        setAlert(false);
+        setMessage("");
+        setType("");
+    };
+
     return (
         <div>
             <Navbar dashboard/>
+            <Message message = {message} type = {type} alert = {alert}/>
             <div className = "mt-24 relative">
                 <div className = "px-4 bg-[#f7f7f7]">
-                    <div className = "container mx-auto justify-self-center flex flex-col justify-center items-center gap-4 py-8 max-md:py-4">
-                        <div className = "flex flex-wrap justify-center items-center gap-4 w-full">
-                            {contentsCount.map((item, index) => (
-                                <Link href = {`/dashboard#${item.status}`} key = {index} className = "shadow-lg bg-white rounded-xl w-56 max-xxs:w-full h-max">
-                                    <div className = "py-2 px-2 flex justify-start items-center gap-4">
-                                        <div className = {`shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl ${item.color} hover:scale-108 transition duration-200 ease-in-out`}>
-                                            <i className = {item.symbol}></i>
+                    <div className = "container mx-auto justify-self-center flex flex-wrap justify-center items-center gap-4 py-8 max-md:py-4">
+                        <StatusDashboard contentsItem = {session ? contentsItem : []} status = "safe"/>
+                        <StatusDashboard contentsItem = {session ? contentsItem : []} status = "warning"/>
+                        <StatusDashboard contentsItem = {session ? contentsItem : []} status = "dangerous"/>
+                        <CountDashboard contentsCount = {session ? contentsCount : []}/>
+                        <LineDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
+                        <BarDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
+                        <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
+                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden">
+                            <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
+                                <i className = "text-7xl fa-solid fa-plug-circle-plus"></i>
+                                <p className = "font-bold text-xl uppercase">Add Device</p>
+                            </div>
+                            <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
+                                <h3 className = "font-bold text-[#171717] text-xl">Add Device</h3>
+                                {session && (
+                                    <form className = "flex flex-col gap-2 w-full h-full">
+                                        <Input
+                                            name = "Name"
+                                            placeholder = "Name"
+                                            typr = "text"
+                                            onChange = {(e) => {
+                                                setName(e.target.value);
+                                                resetAlert();
+                                            }}
+                                            symbol = "fa-solid fa-plug"
+                                        />
+                                        <div className = "flex gap-4 max-xxs:flex-col">
+                                            <Button name = "Add Device" type = "submit" onClick = {() => { resetAlert(); }}/>
+                                            <Button name = "Cancel" type = "reset" onClick = {() => { resetAlert(); }}/>
                                         </div>
-                                        <div className = "flex flex-col gap-4">
-                                            <div className = "flex flex-col">
-                                                <h1 className = "text-xl font-bold">
-                                                    {session ? (
-                                                        new Intl.NumberFormat('en-US', {
-                                                            notation: item.count >= 1000 ? "compact" : "standard",
-                                                            compactDisplay: "short",
-                                                        }).format(item.count)
-                                                    ) : (
-                                                        0
-                                                    )}
-                                                </h1>
-                                                <p className = "text-[#9497a1] text-xs font-medium">{item.name}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                            <Link href = {`/add%20devicde`} className = "shadow-lg bg-white rounded-xl w-56 max-xxs:w-full h-max">
-                                <div className = "py-2 px-2 flex justify-start items-center gap-4">
-                                    <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl text-[#171717] hover:scale-108 transition duration-200 ease-in-out">
-                                        <i className = "fa-solid fa-plug-circle-plus"></i>
-                                    </div>
-                                    <div className = "flex flex-col gap-4">
-                                        <div className = "flex flex-col">
-                                            <h1 className = "text-xl font-bold">
-                                                Add Devices
-                                            </h1>
-                                            <p className = "text-[#9497a1] text-xs font-medium">คลิกเพื่อเพิ่มอุปกรณ์</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div className = "flex flex-wrap gap-4 justify-center items-center">
-                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "safe"/>
-                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "warning"/>
-                            <StatusDashboard contentsItem = {session ? contentsItem : []} status = "dangerous"/>
-                            <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
-                            <LineDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
-                            <BarDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
+                                    </form>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

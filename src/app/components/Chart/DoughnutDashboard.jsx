@@ -17,7 +17,7 @@ function DoughnutDashboard({ contentsItem, contentsCount}) {
             </div>
             <div className = "p-8 flex flex-col gap-4 w-full h-full relative z-10">
                 <h3 className = "font-bold text-[#171717] text-xl">Device Status Overview</h3>
-                <DoughnutChart contentsItem = {contentsItem} showCount = "safe"/>
+                <DoughnutChart contentsItem = {contentsItem}/>
                 <div className = "flex flex-col gap-2">
                     {contentsCount.map((item, index) => {
                         const percentage = totalDevices > 0 ? Math.round((item.count / totalDevices) * 100) : 0;
