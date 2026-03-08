@@ -1,5 +1,7 @@
 import "./globals.css";
 import { AuthProvider } from "./Provider";
+import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata = {
   title: "AMPsafe",
@@ -16,6 +18,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className = "antialiased">
         <AuthProvider>{children}</AuthProvider>
+        <Analytics/>
+        <SpeedInsights/>
       </body>
     </html>
   );
