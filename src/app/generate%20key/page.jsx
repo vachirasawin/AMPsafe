@@ -14,7 +14,7 @@ import Message from "../components/Message";
 
 function Page() {
     const { data: session } = useSession();
-    if (!session || session?.user?.email != "vachirasawin.mah@gmail.com" || session?.user?.email != "possavee.mee@sk-thonburi.ac.th" || session?.user?.email != "kullamas.kae@sk-thonburi.ac.th") redirect ("/");
+    if (!session || (session?.user?.email !== "vachirasawin.mah@gmail.com" && session?.user?.email !== "possavee.mee@sk-thonburi.ac.th" && session?.user?.email !== "kullamas.kae@sk-thonburi.ac.th")) redirect ("/");
     const [generatedKey, setGeneratedKey] = useState("");
 
     const [message, setMessage] = useState("");
