@@ -38,7 +38,7 @@ function Navbar({ home, aboutUs, dashboard, generateKey, signIn, signUp }) {
                         <Link href = "/" className = {`${home && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Home</Link>
                         <Link href = "/about us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
                         <Link href = "/dashboard" className = {`${dashboard && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Dashboard</Link>
-                        {(session && (session?.user?.email != "vachirasawin.mah@gmail.com" || session?.user?.email != "possavee.mee@sk-thonburi.ac.th" || session?.user?.email != "kullamas.kae@sk-thonburi.ac.th")) && (
+                        {(session && (session?.user?.email == "vachirasawin.mah@gmail.com" || session?.user?.email == "possavee.mee@sk-thonburi.ac.th" || session?.user?.email == "kullamas.kae@sk-thonburi.ac.th")) && (
                             <Link href = "/generate%20key" className = {`${generateKey && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Generate Key</Link>
                         )}
                     </div>
@@ -63,7 +63,7 @@ function Navbar({ home, aboutUs, dashboard, generateKey, signIn, signUp }) {
                     <Link href = "/" className = {home && "text-[#171717]"}>Home</Link>
                     <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
                     <Link href = "/dashboard" className = {dashboard && "text-[#171717]"}>Dashboard</Link>
-                    {(session && (session?.user?.email != "vachirasawin.mah@gmail.com" || session?.user?.email != "possavee.mee@sk-thonburi.ac.th" || session?.user?.email != "kullamas.kae@sk-thonburi.ac.th")) && (
+                    {(session && (session?.user?.email == "vachirasawin.mah@gmail.com" || session?.user?.email == "possavee.mee@sk-thonburi.ac.th" || session?.user?.email == "kullamas.kae@sk-thonburi.ac.th")) && (
                         <Link href = "/generate%20key" className = {generateKey && "text-[#171717]"}>Generate Key</Link>
                     )}
                 </div>
