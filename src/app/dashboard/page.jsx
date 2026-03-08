@@ -18,8 +18,8 @@ import Button from "../components/Button";
 import Message from "../components/Message";
 
 function Page() {
-    // const { data: session } = useSession();
-    const session = true
+    const { data: session } = useSession();
+    // const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
     const [historyCount, setHistoryCount] = useState([]);
@@ -97,9 +97,7 @@ function Page() {
 
     const [nameAdd, setNameAdd] = useState("");
     const [keyAdd, setKeyAdd] = useState("");
-    const [showKeyAdd, setShowKeyAdd] = useState(false);
     const [confirmKeyAdd, setConfirmKeyAdd] = useState("");
-    const [showConfirmKeyAdd, setShowConfirmKeyAdd] = useState(false);
 
     const [nameDelete, setNameDelete] = useState("");
     const [confirmNameDelete, setConfirmNameDelete] = useState("");
@@ -111,6 +109,13 @@ function Page() {
         setAlert(false);
         setMessage("");
         setType("");
+    };
+
+    const formatKey = (value) => {
+        const rawValue = value.replace(/-/g, "").toUpperCase();
+        const groups = rawValue.match(/.{1,4}/g);
+
+        return groups ? groups.join("-").substring(0, 19) : rawValue;
     };
 
     const handleSubmitAdd = async (e) => {
@@ -175,7 +180,7 @@ function Page() {
                             <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
                                 <h3 className = "font-bold text-[#171717] text-xl">Add Device</h3>
                                 {session && (
-                                    <form onSubmit = {handleSubmitAdd} className = "flex flex-col gap-2 overflow-y-auto styleScrollbar pr-2 w-full h-full">
+                                    <form onSubmit = {handleSubmitAdd} className = "flex flex-col gap-4 overflow-y-auto styleScrollbar pr-2 w-full h-full">
                                         <Input
                                             name = "Name"
                                             placeholder = "Name"
@@ -189,30 +194,36 @@ function Page() {
                                         <Input
                                             name = "Key"
                                             placeholder = "Key"
-                                            type = {showKeyAdd ? "text" : "password"}
+                                            type = "text"
+                                            value = {keyAdd}
                                             onChange = {(e) => {
-                                                setKeyAdd(e.target.value);
+                                                const formatted = formatKey(e.target.value);
+                                                setKeyAdd(formatted);
                                                 resetAlert();
                                             }}
-                                            symbol = {`fa-solid ${showKeyAdd ? "fa-lock-open" : "fa-lock"}`}
-                                            onClick = {() => setShowKeyAdd(!showKeyAdd)}
+                                            symbol = "fa-solid fa-key"
                                             noAction
                                         />
                                         <Input
                                             name = "Confirm Key"
                                             placeholder = "Confirm Key"
-                                            type = {showConfirmKeyAdd ? "text" : "password"}
+                                            type = "text"
+                                            value = {confirmKeyAdd}
                                             onChange = {(e) => {
-                                                setConfirmKeyAdd(e.target.value);
+                                                const formatted = formatKey(e.target.value);
+                                                setConfirmKeyAdd(formatted);
                                                 resetAlert();
                                             }}
-                                            symbol = {`fa-solid ${showConfirmKeyAdd ? "fa-lock-open" : "fa-lock"}`}
-                                            onClick = {() => setShowConfirmKeyAdd(!showConfirmKeyAdd)}
+                                            symbol = "fa-solid fa-key"
                                             noAction
                                         />
                                         <div className = "flex gap-4 max-xxs:flex-col">
                                             <Button name = "Add Device" type = "submit" onClick = {() => { resetAlert(); }}/>
-                                            <Button name = "Cancel" type = "reset" onClick = {() => { resetAlert(); }}/>
+                                            <Button name = "Cancel" type = "reset" onClick = {() => {
+                                                setKeyAdd("");
+                                                setConfirmKeyAdd("");
+                                                resetAlert();
+                                            }}/>
                                         </div>
                                     </form>
                                 )}
@@ -226,7 +237,7 @@ function Page() {
                             <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
                                 <h3 className = "font-bold text-[#171717] text-xl">Delete Device</h3>
                                 {session && (
-                                    <form onSubmit = {handleSubmitDelete} className = "flex flex-col gap-2 overflow-y-auto styleScrollbar pr-2 w-full h-full">
+                                    <form onSubmit = {handleSubmitDelete} className = "flex flex-col gap-4 overflow-y-auto styleScrollbar pr-2 w-full h-full">
                                         <Input
                                             name = "Name"
                                             placeholder = "Name"

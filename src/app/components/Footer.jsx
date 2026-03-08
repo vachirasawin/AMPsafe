@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 // import from components
 import FooterSection from "./FooterSection";
 
-function Footer({ home, aboutUs, signIn, signUp, dashboard, faqs, developers, models }) {
+function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, developers, models }) {
     const { data: session } = useSession();
     
     const [quickLink, setQuickLink] = useState(false);
@@ -35,10 +35,11 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, faqs, developers, mo
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${quickLink ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/" className = {`${home && "text-white"}`}>Home</Link>
                             <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
+                            <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
                             {session ? (
-                                <>
-                                    <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
-                                </>
+                                (session?.user?.email != "vachirasawin.mah@gmail.com" || session?.user?.email != "possavee.mee@sk-thonburi.ac.th" || session?.user?.email != "kullamas.kae@sk-thonburi.ac.th") && (
+                                    <Link href = "/generate%20key" className = {`${generateKey && "text-white"}`}>Generate Key</Link>
+                                )
                             ) : (
                                 <>
                                     <Link href = "/sign%20in" className = {`${signIn && "text-white"}`}>Sign In</Link>

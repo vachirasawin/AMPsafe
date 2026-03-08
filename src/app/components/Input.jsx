@@ -3,7 +3,7 @@
 // import from Next.js
 import React from "react";
 
-function Input({ name, placeholder, type, onChange, symbol, onClick, noAction }) {
+function Input({ name, value, placeholder, type, onChange, symbol, onClick, noAction }) {
     const disableAction = (e) => {
         if (noAction) e.preventDefault();
     };
@@ -20,6 +20,7 @@ function Input({ name, placeholder, type, onChange, symbol, onClick, noAction })
                 <input
                     onChange = {onChange}
                     type = {type}
+                    value = {value}
                     placeholder = {placeholder}
                     className = {`${symbol ? "w-full" : "w-60"} px-2 outline-none font-medium text-sm`}
                     onCopy = {disableAction}
