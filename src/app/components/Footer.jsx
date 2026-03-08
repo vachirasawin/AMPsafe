@@ -37,7 +37,7 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, d
                             <Link href = "/about us" className = {`${aboutUs && "text-white"}`}>About Us</Link>
                             <Link href = "/dashboard" className = {`${dashboard && "text-white"}`}>Dashboard</Link>
                             {session ? (
-                                (session?.user?.email != "vachirasawin.mah@gmail.com" || session?.user?.email != "possavee.mee@sk-thonburi.ac.th" || session?.user?.email != "kullamas.kae@sk-thonburi.ac.th") && (
+                                (session?.user?.email == "vachirasawin.mah@gmail.com" || session?.user?.email == "possavee.mee@sk-thonburi.ac.th" || session?.user?.email == "kullamas.kae@sk-thonburi.ac.th") && (
                                     <Link href = "/generate%20key" className = {`${generateKey && "text-white"}`}>Generate Key</Link>
                                 )
                             ) : (
