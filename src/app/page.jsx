@@ -9,7 +9,43 @@ import Card from "./components/Card";
 import Footer from "./components/Footer";
 
 function Page() {
-    const contentsHowTo = [
+    const contentsHowTuUseAMPnode = [
+        {
+            title: "Connect System",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เชื่อมต่ออุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "bx bx-plus-circle bx-remove-padding"
+        },
+        {
+            title: "Connect System",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เชื่อมต่ออุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "bx bx-minus-circle bx-remove-padding"
+        },
+        {
+            title: "Add Device",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เพิ่มอุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "/dashboard#connect",
+            symbol: "fa-solid fa-key"
+        }
+    ]
+
+    const contentsHowToUseAMPsafe = [
         {
             title: "Sign In",
             image: "-",
@@ -61,10 +97,7 @@ function Page() {
             <Navbar home/>
             <TitleImage image = "/industry.jpg" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย" relative/>
             <Information
-                title = {`
-                    <span className = "text-blue-500">AMP</span>
-                    <span>safe</span>
-                `}
+                title = {`<span class = "text-blue-500">AMP</span><span>safe</span>`}
                 description = "AI พยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย"
                 content = {`
                     <p>
@@ -83,7 +116,8 @@ function Page() {
                 ]}
                 image = {["industry", "jpg", 1422, 800]}
             />
-            <Card title = "AMPsafe" subTitle = "How to Use" description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowTo} w = "min-w-72 max-w-72" h = "h-70" inverse/>
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>node</span>`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} w = "min-w-72 max-w-72" h = "h-70"/>
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>safe</span>`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} w = "min-w-72 max-w-72" h = "h-70"/>
             <div className = "px-4 bg-[#f7f7f7] border-b border-[#ececec]">
                 <div className = "container mx-auto justify-self-center flex justify-center items-center">
                 </div>

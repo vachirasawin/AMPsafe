@@ -9,7 +9,43 @@ import Information from "../components/Information";
 import Footer from "../components/Footer";
 
 function Page() {
-    const contentsHowTo = [
+    const contentsHowTuUseAMPnode = [
+        {
+            title: "Connect System",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เชื่อมต่ออุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "bx bx-plus-circle bx-remove-padding"
+        },
+        {
+            title: "Connect System",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เชื่อมต่ออุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "bx bx-minus-circle bx-remove-padding"
+        },
+        {
+            title: "Add Device",
+            image: "-",
+            extension: "-",
+            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            description: "เพิ่มอุปกรณ์",
+            width: "-",
+            height: "-",
+            link: "/dashboard#connect",
+            symbol: "fa-solid fa-key"
+        }
+    ]
+
+    const contentsHowToUseAMPsafe = [
         {
             title: "Sign In",
             image: "-",
@@ -18,7 +54,7 @@ function Page() {
             description: "เข้าสู่ระบบ",
             width: "-",
             height: "-",
-            link: "/signin",
+            link: "/sign%20in",
             symbol: "fa-solid fa-arrow-right-to-bracket"
         },
         {
@@ -29,30 +65,30 @@ function Page() {
             content: "เชื่อมต่ออุปกรณ์วัดกระแสไฟฟ้าเข้ากับระบบ",
             width: "-",
             height: "-",
-            link: "/signin",
+            link: "/dashboard#connect",
             symbol: "fa-solid fa-plug-circle-plus"
-        },
-        {
-            title: "AI Monitoring",
-            description: "AI วิเคราะห์ข้อมูลแบบ Real-time",
-            image: "-",
-            extension: "-",
-            content: "ตรวจจับความผิดปกติของกระแสไฟฟ้า",
-            width: "-",
-            height: "-",
-            link: "/dashboard",
-            symbol: "fa-solid fa-chart-line"
         },
         {
             title: "Dashboard",
             description: "ระบบแจ้งเตือนเมื่อพบความเสี่ยง",
             image: "-",
             extension: "-",
-            content: "ดูกราฟแนวโน้มของกระแสไฟฟ้าและความเสี่ยง",
+            content: "ดูข้อมูลต่าง ๆ ผ่านการวิเคราะห์ของ AI",
             width: "-",
             height: "-",
             link: "/dashboard",
-            symbol: "fa-solid fa-table"
+            symbol: "bx bx-dashboard bx-remove-padding"
+        },
+        {
+            title: "Export Datas",
+            description: "ส่งออกข้อมูล",
+            image: "-",
+            extension: "-",
+            content: "ส่งออกข้อมูลเป็นไฟล์ .csv / .json เพื่อนำไปวิเคราะห์ต่อได้",
+            width: "-",
+            height: "-",
+            link: "/dashboard#export",
+            symbol: "fa-solid fa-file"
         }
     ]
 
@@ -82,261 +118,6 @@ function Page() {
             height: 2000,
         }
     ]
-
-    const contentsSoftware = [
-        {
-            title: "Node.js",
-            image: "nodejs",
-            extension: "png",
-            content: "Runtime สำหรับรัน JavaScript บนเซิร์ฟเวอร์ได้",
-            description: "version 22.17.1",
-            width: "1200",
-            height: "735",
-            link: "https://nodejs.org/en",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Next.js",
-            image: "nextjs",
-            extension: "avif",
-            content: "Framework สำหรับพัฒนาเว็บแอปพลิเคชัน",
-            description: "version 16.1.6",
-            width: "512",
-            height: "512",
-            link: "https://nextjs.org/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "React",
-            image: "react",
-            extension: "png",
-            content: "Library JavaScript สำหรับสร้าง UI",
-            description: "version 19.2.3",
-            width: "800",
-            height: "720",
-            link: "https://react.dev/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Tailwind CSS",
-            image: "tailwindcss",
-            extension: "png",
-            content: "Framework ของ CSS ที่ใช้สำหรับออกแบบ UI แบบรวดเร็ว",
-            description: "version 4",
-            width: "1280",
-            height: "770",
-            link: "https://tailwindcss.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Font Awesome",
-            image: "fontawesome",
-            extension: "png",
-            content: "Icon library สำหรับเอาสัญลักษณ์ต่าง ๆ มาใช้",
-            description: "",
-            width: "1200",
-            height: "490",
-            link: "https://www.fontawesome.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Boxicons",
-            image: "boxicons",
-            extension: "jpg",
-            content: "Icon library สำหรับเอาสัญลักษณ์ต่าง ๆ มาใช้",
-            description: "",
-            width: "385",
-            height: "385",
-            link: "https://boxicons.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Color Hunt",
-            image: "colorhunt",
-            extension: "gif",
-            content: "Website ที่รวบรวมสีต่าง ๆ ที่เข้ากันได้อย่างสวยงาม",
-            description: "",
-            width: "320",
-            height: "320",
-            link: "https://colorhunt.co/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Mongoose",
-            image: "mongoose",
-            extension: "png",
-            content: "Library สำหรับทำงานกับฐานข้อมูล",
-            description: "version 9.2.4",
-            width: "280",
-            height: "280",
-            link: "https://mongoosejs.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "MongoDB Atlas",
-            image: "mongodb",
-            extension: "png",
-            content: "ฐานข้อมูลแบบ MongoDB แบบคลาวด์",
-            description: "",
-            width: "512",
-            height: "512",
-            link: "https://www.mongodb.com/products/platform",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "BCrypt.js",
-            image: "bcrypt",
-            extension: "webp",
-            content: "Algorithm สำหรับเข้ารหัสของรหัสผ่าน",
-            description: "version 3.0.3",
-            width: "400",
-            height: "400",
-            link: "https://www.npmjs.com/package/bcryptjs",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "NextAuth.js",
-            image: "nextauthjs",
-            extension: "png",
-            content: "Library สำหรับจัดการระบบ authentication",
-            description: "version 4.24.13",
-            width: "327",
-            height: "361",
-            link: "https://next-auth.js.org/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Chart.js",
-            image: "chartjs",
-            extension: "svg",
-            content: "Library สำหรับจัดสร้างกราฟและแผนภูมิ",
-            description: "version 4.5.1",
-            width: "192",
-            height: "192",
-            link: "https://next-auth.js.org/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Github Developers",
-            image: "github",
-            extension: "png",
-            content: "ใช้เป็น Providers สำหรับการเข้าสู่ระบบ",
-            description: "",
-            width: "1200",
-            height: "1200",
-            link: "https://developer.github.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Google Developers",
-            image: "google",
-            extension: "webp",
-            content: "ใช้เป็น Providers สำหรับการเข้าสู่ระบบ",
-            description: "",
-            width: "250",
-            height: "250",
-            link: "https://developers.google.com/?hl=th",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Facebook Developers",
-            image: "meta",
-            extension: "webp",
-            content: "ใช้เป็น Providers สำหรับการเข้าสู่ระบบ",
-            description: "",
-            width: "1280",
-            height: "851",
-            link: "https://developers.facebook.com/?locale=th_TH",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Visual Studio Code",
-            image: "vscode",
-            extension: "png",
-            content: "Code editor สำหรับใช้เพื่อพัฒนาเว็บแอปพลิเคชันและโมเดล",
-            description: "version 1.110.1",
-            width: "1080",
-            height: "1080",
-            link: "https://code.visualstudio.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Google Chrome",
-            image: "google",
-            extension: "webp",
-            content: "Web Browser ใช้สำหรับแสดงเว็บแอพลิเคชันขณะพัฒนา",
-            description: "version 145.0.7632.117",
-            width: "250",
-            height: "256",
-            link: "https://www.google.com/intl/th_th/chrome/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Vercel",
-            image: "vercel",
-            extension: "png",
-            content: "Platform สำหรับ host เว็บไซต์แบบ dynamic",
-            description: "version 47.0.5",
-            width: "360",
-            height: "360",
-            link: "https://vercel.com/",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Vercel Analytics",
-            image: "vercel",
-            extension: "png",
-            content: "Feature ใน Vercel ที่ให้ข้อมูลจากการวิเคราะห์เว็บไซต์",
-            description: "version 1.6.1",
-            width: "360",
-            height: "360",
-            link: "https://vercel.com/docs/analytics",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Vercel Speed Insights",
-            image: "vercel",
-            extension: "png",
-            content: "Feature ใน Vercel ที่ให้ข้อมูลความเร็วในการโหลดเว็บไซต์",
-            description: "version 1.3.1",
-            width: "360",
-            height: "360",
-            link: "https://vercel.com/docs/speed-insights",
-            symbol: "-",
-            main: "-"
-        },
-        {
-            title: "Git",
-            image: "git",
-            extension: "png",
-            content: "โปรแกรมสำหรับ push source code เว็บแอปพลิเคชันขึ้น github",
-            description: "version 2.49.0.windows.1",
-            width: "383",
-            height: "383",
-            link: "https://git-scm.com/",
-            symbol: "-",
-            main: "-"
-        },
-    ];
 
     const contentsFAQs = [
         {
@@ -453,24 +234,25 @@ function Page() {
         <div className = "scroll-mt-24">
             <Navbar aboutUs faqs/>
             <TitleImage image = "/industry.jpg" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย" relative/>
-            <Card title = "AMPsafe" subTitle = "How to Use" description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowTo} w = "min-w-72 max-w-72" h = "h-70" inverse/>
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>node</span>`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} w = "min-w-72 max-w-72" h = "h-70"/>
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>safe</span>`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} w = "min-w-72 max-w-72" h = "h-70"/>
             <div id = "developers" className = "scroll-mt-24">
                 <TitleImage image = "/developers.jpg" title = "Developers"/>
                 {contentsDeveloper.map((content, item) => (
                     <Information
-                        key = {item}
                         title = {content.nameENG}
                         description = {content.nameTH}
                         content = {content.information}
                         image = {[content.image, "png", content.width, content.height]}
-                        reverse = {item % 2 === 0 ? true : false}
+                        reverse = {item % 2 === 0 ? false : true}
+                        id = {item}
+                        key = {item}
                     />
                 ))}
             </div>
             <div id = "faqs" className = "scroll-mt-24">
-                <Card title = "FAQs" description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70" inverse/>
+                <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70"/>
             </div>
-            <Card title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftware} w = "min-w-72 max-w-72" h = "h-70"/>
             <Footer aboutUs faqs developers/>
         </div>
     );

@@ -59,6 +59,9 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, d
                         <FooterSection name = "Models" onClick = {() => setModelsPage(!modelsPage)} rotate = {modelsPage}/>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${modelsPage ? "max-md:flex" : "max-md:hidden"}`}>
                             <Link href = "/models" className = {`${models && "text-white"}`}>Models</Link>
+                            <Link href = "/models#0" className = {`${models && "text-white"}`}>Model Name</Link>
+                            <Link href = "/models#1" className = {`${models && "text-white"}`}>Model Name</Link>
+                            <Link href = "/models#2" className = {`${models && "text-white"}`}>Model Name</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">

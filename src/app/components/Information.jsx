@@ -3,10 +3,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function Information({ title, description, content, link, image, reverse }) {
+function Information({ title, description, content, link, image, reverse, id, key }) {
     return (
-        <div className = "px-4 border-b border-[#ececec] bg-white">
-            <div className = {`container mx-auto justify-self-center flex justify-around flex-wrap-reverse ${reverse ? "flex-row" : "flex-row-reverse"} items-center gap-4 py-24 max-md:py-8`}>
+        <div className = "px-4 border-b border-[#ececec] bg-white scroll-mt-24" id = {id} key = {key}>
+            <div className = {`container mx-auto justify-self-center flex justify-around flex-wrap-reverse ${reverse ? "flex-row-reverse" : "flex-row"} items-center gap-4 py-24 max-md:py-8`}>
                 <div className = "w-lg flex flex-col gap-8 max-md:gap-4">
                     <div className = "flex flex-col gap-7 max-md:gap-4">
                         <div>
