@@ -18,7 +18,7 @@ function Page() {
             description: "เข้าสู่ระบบ",
             width: "-",
             height: "-",
-            link: "/signin",
+            link: "/sign%20in",
             symbol: "fa-solid fa-arrow-right-to-bracket"
         },
         {
@@ -29,30 +29,30 @@ function Page() {
             content: "เชื่อมต่ออุปกรณ์วัดกระแสไฟฟ้าเข้ากับระบบ",
             width: "-",
             height: "-",
-            link: "/signin",
+            link: "/dashboard#connect",
             symbol: "fa-solid fa-plug-circle-plus"
-        },
-        {
-            title: "AI Monitoring",
-            description: "AI วิเคราะห์ข้อมูลแบบ Real-time",
-            image: "-",
-            extension: "-",
-            content: "ตรวจจับความผิดปกติของกระแสไฟฟ้า",
-            width: "-",
-            height: "-",
-            link: "/dashboard",
-            symbol: "fa-solid fa-chart-line"
         },
         {
             title: "Dashboard",
             description: "ระบบแจ้งเตือนเมื่อพบความเสี่ยง",
             image: "-",
             extension: "-",
-            content: "ดูกราฟแนวโน้มของกระแสไฟฟ้าและความเสี่ยง",
+            content: "ดูข้อมูลต่าง ๆ ผ่านการวิเคราะห์ของ AI",
             width: "-",
             height: "-",
             link: "/dashboard",
-            symbol: "fa-solid fa-table"
+            symbol: "bx bx-dashboard bx-remove-padding"
+        },
+        {
+            title: "Export Datas",
+            description: "ส่งออกข้อมูล",
+            image: "-",
+            extension: "-",
+            content: "ส่งออกข้อมูลเป็นไฟล์ .csv / .json เพื่อนำไปวิเคราะห์ต่อได้",
+            width: "-",
+            height: "-",
+            link: "/dashboard#export",
+            symbol: "fa-solid fa-file"
         }
     ]
 

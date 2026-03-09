@@ -6,7 +6,7 @@ import LineChart from "./LineChart";
 
 function LineDashboard({ historyCount, contentsCount }) {
     return (
-        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[41rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden">
+        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[41rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28">
             <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
                 <i className = "text-7xl fa-solid fa-chart-area"></i>
                 <p className = "font-bold text-xl uppercase">Device Status Distribution</p>
@@ -15,7 +15,7 @@ function LineDashboard({ historyCount, contentsCount }) {
                 <h3 className = "font-bold text-[#171717] text-xl">Device Status Distribution</h3>
                 <LineChart historyCount = {historyCount}/>
                 <div className = "flex flex-col gap-2">
-                    {contentsCount.map((item, index) => (
+                    {contentsCount.map((item, index) => (item.status != "online" && item.status != "offline") && (
                         <div key = {index} className = "flex justify-between items-center text-sm">
                             <div className = "flex items-center gap-2">
                                 <div className = {`w-4 h-4 rounded-sm ${item.bg}`}></div>

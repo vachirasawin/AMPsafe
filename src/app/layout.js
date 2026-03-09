@@ -14,6 +14,10 @@ export default function RootLayout({ children }) {
         <link rel = "icon" href = "/logo.png"/>
         <link rel = "preconnect" href = "https://fonts.gstatic.com" crossOrigin = "true"/>
         <link href = "https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel = "stylesheet"/>
+        <link href = "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel = "stylesheet"/>
+        <link href = "https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel = "stylesheet"/>
+        <link href = "https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel = "stylesheet"/>
+        <link href = "https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel = "stylesheet"/>
         <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity = "sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossOrigin = "anonymous" referrerPolicy = "no-referrer"/>
       </head>
       <body className = "antialiased">

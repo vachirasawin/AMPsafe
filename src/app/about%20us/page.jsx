@@ -154,6 +154,18 @@ function Page() {
             main: "-"
         },
         {
+            title: "Boxicons",
+            image: "boxicons",
+            extension: "jpg",
+            content: "Icon library สำหรับเอาสัญลักษณ์ต่าง ๆ มาใช้",
+            description: "",
+            width: "385",
+            height: "385",
+            link: "https://boxicons.com/",
+            symbol: "-",
+            main: "-"
+        },
+        {
             title: "Color Hunt",
             image: "colorhunt",
             extension: "gif",
@@ -219,8 +231,8 @@ function Page() {
             extension: "svg",
             content: "Library สำหรับจัดสร้างกราฟและแผนภูมิ",
             description: "version 4.5.1",
-            width: "327",
-            height: "361",
+            width: "192",
+            height: "192",
             link: "https://next-auth.js.org/",
             symbol: "-",
             main: "-"
@@ -337,37 +349,112 @@ function Page() {
 
     const contentsFAQs = [
         {
-            title: "Question",
+            title: "เหมาะกับโรงงานแบบไหน",
             image: "-",
             extension: "-",
-            content: "Answer",
-            description: "คำถาม",
+            content: "เหมาะกับโรงงานที่ใช้มอเตอร์ไฟฟ้าเป็นหลัก และต้องการลดการหยุดชะงักของการผลิต",
+            description: "",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            name: ""
         },
         {
-            title: "Question",
+            title: "ระบบต้องบำรุงรักษาบ่อยไหม",
             image: "-",
             extension: "-",
-            content: "Answer",
-            description: "คำถาม",
+            content: "ระบบออกแบบมาให้ดูแลรักษาน้อยที่สุดโดยใช้ AMPnode อุปกรณ์ขนาดเล็กที่ติดตั้งกับเครื่องจักรโดยตรง ติดตั้งครั้งเดียวแล้วใช้งานได้ยาวนาน",
+            description: "",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            name: ""
         },
         {
-            title: "Question",
+            title: "ระบบรองรับกี่เครื่อง",
             image: "-",
             extension: "-",
-            content: "Answer",
-            description: "คำถาม",
+            content: "รองรับการเชื่อมต่อได้ไม่จำกัดจำนวน เพียงติดตั้ง AMPnode 1 ตัวต่อ 1 เครื่องจักร แล้วกรอก Key ผ่านหน้า Dashboard ได้เลย",
+            description: "",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "-"
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "วิธีการสมัครสมาชิก",
+            image: "-",
+            extension: "-",
+            content: "สมัครสมาชิกโดยการกรอกชื่อจริง email และรหัสผ่าน",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/sign%20up",
+            symbol: "-",
+            name: "Sign In"
+        },
+        {
+            title: "วิธีการติดต่อกับทีมงาน",
+            image: "-",
+            extension: "-",
+            content: "สามารถติดต่อกับทีมงานเพื่อให้คำแนะนำได้ผ่าน email ใน About Us",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/about%20us#developers",
+            symbol: "-",
+            name: "Developers"
+        },
+        {
+            title: "วิธีการเชื่อมต่อ AMPnode ด้วย Key",
+            image: "-",
+            extension: "-",
+            content: "สามารถกรอก Key ที่มาพร้อมกับ AMPnode ได้ในหน้า Dashboard เพื่อแสดงผล",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#connect",
+            symbol: "-",
+            name: "Add Device"
+        },
+        {
+            title: "วิธีการดูข้อมูล",
+            image: "-",
+            extension: "-",
+            content: "สามารถดูข้อมูลผ่านการวิเคราะห์ด้วย AI ในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard",
+            symbol: "-",
+            name: "Dashboard"
+        },
+        {
+            title: "วิธีการลบการเชื่อมต่อ AMPnode",
+            image: "-",
+            extension: "-",
+            content: "สามารถลบการเชื่อมต่อ AMPnode ด้วยการกรอกชื่อที่ตั้งขึ้นเองในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#delete",
+            symbol: "-",
+            name: "Delete Device"
+        },
+        {
+            title: "วิธีการส่งออกข้อมูลการวิเคราะห์ของ AI",
+            image: "-",
+            extension: "-",
+            content: "สามารถส่งออกข้อมูลการวิเคราะห์เพื่อนำไปใช้ต่อได้ในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#export",
+            symbol: "-",
+            name: "Export Datas"
         }
     ]
 
@@ -380,14 +467,10 @@ function Page() {
                 <Title image = "/developers.jpg" title = "Developers"/>
                 <Developer contents = {contentsDeveloper}/>
             </div>
-            <Card title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftware} w = "min-w-72 max-w-72" h = "h-70"/>
             <div id = "faqs" className = "scroll-mt-24">
                 <Card title = "FAQs" description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70" inverse/>
             </div>
-            <div className = "px-4 bg-[#f7f7f7] border-b border-[#ececec]">
-                <div className = "container mx-auto justify-self-center flex justify-center items-center">
-                </div>
-            </div>
+            <Card title = "Software" subTitle = "We Use" description = "ซอฟแวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftware} w = "min-w-72 max-w-72" h = "h-70"/>
             <Footer aboutUs faqs developers/>
         </div>
     );

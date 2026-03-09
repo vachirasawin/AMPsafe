@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ contents, title, subTitle, description, w, h, inverse, downloadType, downloadTitle }) {
+function Card({ contents, title, subTitle, description, w, h, inverse, downloadType, downloadTitle, name }) {
     return (
         <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
             <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
@@ -45,12 +45,12 @@ function Card({ contents, title, subTitle, description, w, h, inverse, downloadT
                                 {content.link !== "-" && (
                                     downloadType ? (
                                         downloadTitle ? (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${downloadTitle}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : downloadTitle}` }}></a>
                                         ) : (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.title}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : content.title}` }}></a>
                                         )
                                     ) : (
-                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.title}` }}></Link>
+                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.name ? content.name : content.title}` }}></Link>
                                     )
                                 )}
                             </div>

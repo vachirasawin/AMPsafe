@@ -31,9 +31,10 @@ function Page() {
                 const data = await res.json();
 
                 const newItem = {
-                    name: "Machine 1",
-                    value: `${Number(data.current).toFixed(2)} A`,
-                    status: data.status
+                    name: data.online && (data.name ?? "DEVICE-01"),
+                    value: data.online && `${Number(data.current).toFixed(2)} A`,
+                    status: data.online && data.status,
+                    online: data.online
                 };
                 setContentsItem([newItem]);
 
@@ -92,6 +93,22 @@ function Page() {
             color: "text-[#f55555]",
             bg: "bg-[#f55555]",
             symbol: "fa-solid fa-plug-circle-xmark"
+        },
+        {
+            name: "Online Devices",
+            status: "online",
+            count: contentsItem.filter(item => item.online).length,
+            color: "text-[#4caf50]",
+            bg: "bg-[#4caf50]",
+            symbol: "bx bx-wifi bx-remove-padding",
+        },
+        {
+            name: "Offline Devices",
+            status: "offline",
+            count: contentsItem.filter(item => !item.online).length,
+            color: "text-[#f55555]",
+            bg: "bg-[#f55555]",
+            symbol: "bx bx-wifi-slash bx-remove-padding",
         }
     ]
 
@@ -171,8 +188,25 @@ function Page() {
                         <CountDashboard contentsCount = {session ? contentsCount : []}/>
                         <LineDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
                         <BarDashboard historyCount = {session ? historyCount : []} contentsCount = {session ? contentsCount : []}/>
-                        <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []}/>
-                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden">
+                        <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []} session = {session}/>
+                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28" id = "export">
+                            <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
+                                <i className = "text-7xl fa-solid fa-file"></i>
+                                <p className = "font-bold text-xl uppercase">Export Datas</p>
+                            </div>
+                            <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
+                                <h3 className = "font-bold text-[#171717] text-xl">Export Datas</h3>
+                                {session && (
+                                    <div className = "flex flex-col gap-4 overflow-y-auto styleScrollbar pr-2 w-full h-full">
+                                        <Button name = "Status History (.csv)" type = "button" onClick = {() => {}} full/>
+                                        <Button name = "Status History (.json)" type = "button" onClick = {() => {}} full/>
+                                        <Button name = "Uptime History (.csv)" type = "button" onClick = {() => {}} full/>
+                                        <Button name = "Uptime History (.json)" type = "button" onClick = {() => {}} full/>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28" id = "connect">
                             <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
                                 <i className = "text-7xl fa-solid fa-plug-circle-plus"></i>
                                 <p className = "font-bold text-xl uppercase">Add Device</p>
@@ -229,7 +263,7 @@ function Page() {
                                 )}
                             </div>
                         </div>
-                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden">
+                        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28" id = "delete">
                             <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
                                 <i className = "text-7xl fa-solid fa-plug-circle-minus"></i>
                                 <p className = "font-bold text-xl uppercase">Delete Device</p>

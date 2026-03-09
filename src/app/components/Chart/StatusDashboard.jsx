@@ -3,7 +3,7 @@ import React from "react";
 
 function StatusDashboard({ contentsItem, status }) {
     return (
-        <div className = "bg-white shadow-lg rounded-xl flex flex-col gap-4 w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] scroll-mt-28 relative overflow-hidden" id = {status}>
+        <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28">
             <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
                 <i className = {`
                     text-7xl
@@ -23,8 +23,8 @@ function StatusDashboard({ contentsItem, status }) {
                 </h3>
                 <div className = "flex flex-col gap-2 overflow-y-auto styleScrollbar pr-2 w-full h-full">
                     {contentsItem.map((item, index) => item.status === status && (
-                        <div key = {index} className = "border border-[#ececec] bg-white/80 backdrop-blur-[2px] rounded-xl w-full h-max">
-                            <div className = "py-0 px-0 flex justify-start items-center gap-4">
+                        <div key = {index} className = "border border-[#ececec] bg-white backdrop-blur-[2px] rounded-xl w-full h-max">
+                            <div className = "pr-[11px] flex justify-start items-center gap-4">
                                 <div className = {`border-r border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-l-xl aspect-square text-xl ${item.color}`}>
                                     <i className = {`
                                         ${item.status === "safe" && "fa-solid fa-plug-circle-check text-[#4caf50]"}
@@ -32,11 +32,15 @@ function StatusDashboard({ contentsItem, status }) {
                                         ${item.status === "dangerous" && "fa-solid fa-plug-circle-xmark text-[#f55555]"}
                                     `}></i>
                                 </div>
-                                <div className = "flex flex-col gap-4">
-                                    <div className = "flex flex-col">
+                                <div className = "w-full flex justify-between items-center">
+                                    <div>
                                         <h1 className = "text-xl font-bold">{item.name}</h1>
                                         <p className = "text-[#9497a1] text-xs font-medium">{item.value}</p>
                                     </div>
+                                    <div className = {`
+                                        w-2 h-11 rounded-full
+                                        ${item.online ? "bg-[#4caf50]" : "bg-[#f55555]"}
+                                    `}></div>
                                 </div>
                             </div>
                         </div>

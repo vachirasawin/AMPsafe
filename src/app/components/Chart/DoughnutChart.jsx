@@ -9,10 +9,11 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DoughnutChart = ({ contentsItem }) => {
     const [centerText, setCenterText] = useState("");
+    const hasData = contentsItem.some(item => item.status);
     const total = contentsItem.length;
     
     const counts = contentsItem.reduce((acc, item) => {
-        acc[item.status] = (acc[item.status] || 0) + 1;
+        if (item.status) acc[item.status] = (acc[item.status] || 0) + 1;
         return acc;
     }, {});
 
@@ -21,9 +22,9 @@ const DoughnutChart = ({ contentsItem }) => {
         labels: [ 'Safe', 'Warning', 'Dangerous' ],
         datasets: [{
             label: 'Device Status',
-            data: [ counts['safe'] || 0, counts['warning'] || 0, counts['dangerous'] || 0 ],backgroundColor: colors,
-            hoverBackgroundColor: colors,
-            hoverOffset: 20,
+            data: hasData ? [ counts['safe'] || 0, counts['warning'] || 0, counts['dangerous'] || 0 ] : [1],
+            backgroundColor: hasData ? colors : ['#ececec'],
+            hoverBackgroundColor: hasData ? colors : ['#ececec'],
             borderWidth: 0,
             cutout: '72%'
         }]
@@ -56,8 +57,8 @@ const DoughnutChart = ({ contentsItem }) => {
         <div className = "relative w-64 max-xxs:w-52 h-64 max-xxs:h-52 mx-auto cursor-pointer">
             <Doughnut data = {data} options = {options}/>
             <div className = "absolute inset-0 flex items-center justify-center pointer-events-none">
-                <span className = "text-lg font-bold text-[#171717] transition-all duration-200">
-                    {centerText}
+                <span className = {`text-lg font-bold text-[#171717] ${centerText ? "opacity-100" : "opacity-0"} transition-all duration-200`}>
+                    {hasData && centerText}
                 </span>
             </div>
         </div>
