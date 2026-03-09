@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 
-function Title({ image, title, relative }) {
+function TitleImage({ image, title, relative }) {
     return (
         <div className = {`relative ${relative && "mt-24"}`}>
             <Image src = {image} alt = {title} width = {1920} height = {1080} unoptimized className = "w-full h-44 lg:h-64 object-cover"/>
@@ -16,4 +16,4 @@ function Title({ image, title, relative }) {
     )
 }
 
-export default Title
+export default TitleImage

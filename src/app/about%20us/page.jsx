@@ -3,9 +3,9 @@ import React from "react";
 
 // import from components
 import Navbar from "../components/Navbar";
-import Title from "../components/TitleImage";
+import TitleImage from "../components/TitleImage";
 import Card from "../components/Card";
-import Developer from "../components/Developer";
+import Information from "../components/Information";
 import Footer from "../components/Footer";
 
 function Page() {
@@ -60,10 +60,7 @@ function Page() {
         {
             nameENG: "Mr. Vachirasawin Mahantaplanon",
             nameTH: "นายวชิรัศวิน มหันตพลานนท์",
-            information: [
-                "vachirasawin.mah@gmail.com",
-                "Tel. 095-591-1041"
-            ],
+            information: "<p>vachirasawin.mah@gmail.com</p><p>Tel. 095-591-1041</p>",
             image: "vachirasawin",
             width: 3000,
             height: 2000
@@ -71,10 +68,7 @@ function Page() {
         {
             nameENG: "Mr. Possavee Meelun",
             nameTH: "นายพศวีร์ มีลุน",
-            information: [
-                "possavee.mee@sk-thonburi.ac.th",
-                "Tel. 065-587-9005"
-            ],
+            information: "<p>possavee.mee@sk-thonburi.ac.th</p><p>Tel. 065-587-9005</p>",
             image: "possavee",
             width: 3000,
             height: 2000,
@@ -82,10 +76,7 @@ function Page() {
         {
             nameENG: "Ms. Kullamas Kaewthida",
             nameTH: "นางสาวกุลมาศ แก้วธิดา",
-            information: [
-                "kullamas.kae@sk-thonburi.ac.th",
-                "Tel. 096-749-6741"
-            ],
+            information: "<p>kullamas.kae@sk-thonburi.ac.th</p><p>Tel. 096-749-6741</p>",
             image: "kullamas",
             width: 3000,
             height: 2000,
@@ -460,12 +451,21 @@ function Page() {
 
     return (
         <div className = "scroll-mt-24">
-            <Navbar aboutUs/>
-            <Title image = "/industry.avif" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย" relative/>
+            <Navbar aboutUs faqs/>
+            <TitleImage image = "/industry.jpg" title = "การพยากรณ์ช่วงของกระแสไฟฟ้าที่อาจทำให้เกิดความเสียหาย" relative/>
             <Card title = "AMPsafe" subTitle = "How to Use" description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowTo} w = "min-w-72 max-w-72" h = "h-70" inverse/>
             <div id = "developers" className = "scroll-mt-24">
-                <Title image = "/developers.jpg" title = "Developers"/>
-                <Developer contents = {contentsDeveloper}/>
+                <TitleImage image = "/developers.jpg" title = "Developers"/>
+                {contentsDeveloper.map((content, item) => (
+                    <Information
+                        key = {item}
+                        title = {content.nameENG}
+                        description = {content.nameTH}
+                        content = {content.information}
+                        image = {[content.image, "png", content.width, content.height]}
+                        reverse = {item % 2 === 0 ? true : false}
+                    />
+                ))}
             </div>
             <div id = "faqs" className = "scroll-mt-24">
                 <Card title = "FAQs" description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70" inverse/>

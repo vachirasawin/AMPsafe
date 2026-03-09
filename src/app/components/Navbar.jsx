@@ -7,7 +7,7 @@ import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 
-function Navbar({ home, aboutUs, dashboard, generateKey, signIn, signUp }) {
+function Navbar({ home, aboutUs, dashboard, faqs, generateKey, signIn, signUp }) {
     const [menu, setMenu] = useState(false);
     const { data: session } = useSession();
 
@@ -36,8 +36,9 @@ function Navbar({ home, aboutUs, dashboard, generateKey, signIn, signUp }) {
                     </div>
                     <div className = "flex text-sm font-medium text-[#9497a1] gap-8 max-lg:hidden">
                         <Link href = "/" className = {`${home && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Home</Link>
-                        <Link href = "/about us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
+                        <Link href = "/about%20us" className = {`${aboutUs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>About Us</Link>
                         <Link href = "/dashboard" className = {`${dashboard && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Dashboard</Link>
+                        <Link href = "/about%20us#faqs" className = {`${faqs && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>FAQs</Link>
                         {(session && (session?.user?.email == "vachirasawin.mah@gmail.com" || session?.user?.email == "possavee.mee@sk-thonburi.ac.th" || session?.user?.email == "kullamas.kae@sk-thonburi.ac.th")) && (
                             <Link href = "/generate%20key" className = {`${generateKey && "text-[#171717] hover:underline hover:underline-offset-4"} hover:bg-[#171717] hover:text-white transition-all duration-200 h-10 px-4 rounded-xl hover:shadow-md flex justify-center items-center`}>Generate Key</Link>
                         )}
@@ -61,8 +62,9 @@ function Navbar({ home, aboutUs, dashboard, generateKey, signIn, signUp }) {
             <div className = {`fixed w-screen h-[calc(100vh-6rem)] flex flex-col gap-8 bg-white p-4 left-0 z-20 border-t border-[#ececec] ${menu ? ((home || aboutUs || dashboard) ? "opacity-100" : "translate-y-24 opacity-100") : "-translate-y-[calc(100vh-6rem)] opacity-100"} transform transition-all duration-500 ease-in-out min-lg:hidden`}>
                 <div className = "flex flex-col text-sm font-medium text-[#9497a1] gap-8">
                     <Link href = "/" className = {home && "text-[#171717]"}>Home</Link>
-                    <Link href = "/about us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
+                    <Link href = "/about%20us" className = {aboutUs && "text-[#171717]"}>About Us</Link>
                     <Link href = "/dashboard" className = {dashboard && "text-[#171717]"}>Dashboard</Link>
+                    <Link href = "/about%20us#faqs" className = {faqs && "text-[#171717]"}>FAQs</Link>
                     {(session && (session?.user?.email == "vachirasawin.mah@gmail.com" || session?.user?.email == "possavee.mee@sk-thonburi.ac.th" || session?.user?.email == "kullamas.kae@sk-thonburi.ac.th")) && (
                         <Link href = "/generate%20key" className = {generateKey && "text-[#171717]"}>Generate Key</Link>
                     )}
