@@ -120,16 +120,16 @@ function Page() {
                 <div class = "flex items-start gap-2 mt-2 max-md:mt-1">
                     <i class = "fa-regular fa-circle-check text-lg max-md:text-xs text-blue-500 mt-1 max-md:mt-[6px]"></i>
                     <div>
-                        <p>แม่นยำสูงเมื่อมี Labels</p>
-                        <p>บอกได้ว่า Feature ไหนสำคัญ</p>
-                        <p>Inference เร็ว</p>
+                        <p>ไม่ต้องการ Fault Data</p>
+                        <p>เร็ว Deploy ง่าย</p>
+                        <p>เหมาะกับ Real-Time</p>
                     </div>
                 </div>
                 <div class = "flex items-start gap-2">
                     <i class = "fa-regular fa-circle-xmark text-lg max-md:text-xs text-[#f55555] mt-1 max-md:mt-[6px]"></i>
                     <div>
-                        <p>ต้องการ Fault Labels</p>
-                        <p>ไม่รู้จัก Fault ใหม่</p>
+                        <p>ตีความผลยาก</p>
+                        <p>ปรับ Threshold เอง</p>
                     </div>
                 </div>
             `,
