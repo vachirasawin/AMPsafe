@@ -3,9 +3,9 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ contents, title, description, w, h, downloadType, downloadTitle }) {
+function Card({ contents, title, description, w, h, downloadType, downloadTitle, id }) {
     return (
-        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7]">
+        <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7] scroll-mt-24" id = {id}>
             <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
                 <div className = "flex justify-center w-full" data-aos = "fade-up">
                     <div className = "flex flex-col gap-2 text-center w-full justify-center items-center">

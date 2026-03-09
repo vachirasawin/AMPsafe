@@ -14,23 +14,23 @@ function Page() {
             title: "Connect System",
             image: "-",
             extension: "-",
-            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
+            content: "หนีบ AMPnode กับสายไฟของเครื่องจักร",
             description: "เชื่อมต่ออุปกรณ์",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "ri-add-circle-line"
+            symbol: "fa-solid fa-bolt"
         },
         {
-            title: "Connect System",
+            title: "Connect WiFi",
             image: "-",
             extension: "-",
-            content: "กรอก Key ที่มาพร้อม AMPnode ในหน้า Dashboard",
-            description: "เชื่อมต่ออุปกรณ์",
+            content: "เชื่อมต่อ WiFi เพื่อให้ AMPnode ส่งข้อมูล",
+            description: "เชื่อมต่อ WiFi",
             width: "-",
             height: "-",
             link: "-",
-            symbol: "ri-indeterminate-circle-line"
+            symbol: "ri-wifi-fill"
         },
         {
             title: "Add Device",
@@ -42,7 +42,8 @@ function Page() {
             height: "-",
             link: "/dashboard#connect",
             symbol: "ri-key-2-fill"
-        }
+        },
+        
     ]
 
     const contentsHowToUseAMPsafe = [
@@ -92,6 +93,117 @@ function Page() {
         }
     ]
 
+    const contentsFAQs = [
+        {
+            title: "เหมาะกับโรงงานแบบไหน",
+            image: "-",
+            extension: "-",
+            content: "เหมาะกับโรงงานที่ใช้มอเตอร์ไฟฟ้าเป็นหลัก และต้องการลดการหยุดชะงักของการผลิต",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "ระบบต้องบำรุงรักษาบ่อยไหม",
+            image: "-",
+            extension: "-",
+            content: "ระบบออกแบบมาให้ดูแลรักษาน้อยที่สุดโดยใช้ AMPnode อุปกรณ์ขนาดเล็กที่ติดตั้งกับเครื่องจักรโดยตรง ติดตั้งครั้งเดียวแล้วใช้งานได้ยาวนาน",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "ระบบรองรับกี่เครื่อง",
+            image: "-",
+            extension: "-",
+            content: "รองรับการเชื่อมต่อได้ไม่จำกัดจำนวน เพียงติดตั้ง AMPnode 1 ตัวต่อ 1 เครื่องจักร แล้วกรอก Key ผ่านหน้า Dashboard ได้เลย",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "วิธีการสมัครสมาชิก",
+            image: "-",
+            extension: "-",
+            content: "สมัครสมาชิกโดยการกรอกชื่อจริง email และรหัสผ่าน",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/sign%20up",
+            symbol: "-",
+            name: "Sign In"
+        },
+        {
+            title: "วิธีการติดต่อกับทีมงาน",
+            image: "-",
+            extension: "-",
+            content: "สามารถติดต่อกับทีมงานเพื่อให้คำแนะนำได้ผ่าน email ใน About Us",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/about%20us#developers",
+            symbol: "-",
+            name: "Developers"
+        },
+        {
+            title: "วิธีการเชื่อมต่อ AMPnode ด้วย Key",
+            image: "-",
+            extension: "-",
+            content: "สามารถกรอก Key ที่มาพร้อมกับ AMPnode ได้ในหน้า Dashboard เพื่อแสดงผล",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#connect",
+            symbol: "-",
+            name: "Add Device"
+        },
+        {
+            title: "วิธีการดูข้อมูล",
+            image: "-",
+            extension: "-",
+            content: "สามารถดูข้อมูลผ่านการวิเคราะห์ด้วย AI ในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard",
+            symbol: "-",
+            name: "Dashboard"
+        },
+        {
+            title: "วิธีการลบการเชื่อมต่อ AMPnode",
+            image: "-",
+            extension: "-",
+            content: "สามารถลบการเชื่อมต่อ AMPnode ด้วยการกรอกชื่อที่ตั้งขึ้นเองในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#delete",
+            symbol: "-",
+            name: "Delete Device"
+        },
+        {
+            title: "วิธีการส่งออกข้อมูลการวิเคราะห์ของ AI",
+            image: "-",
+            extension: "-",
+            content: "สามารถส่งออกข้อมูลการวิเคราะห์เพื่อนำไปใช้ต่อได้ในหน้า Dashboard",
+            description: "",
+            width: "-",
+            height: "-",
+            link: "/dashboard#export",
+            symbol: "-",
+            name: "Export Datas"
+        }
+    ]
+
     return (
         <div>
             <Navbar home/>
@@ -106,8 +218,8 @@ function Page() {
                 `}
                 link = {[
                     {
-                        name: "Dashboard",
-                        link: "/dashboard"
+                        name: "How to Use",
+                        link: "/#AMPsafe"
                     },
                     {
                         name: "FAQs",
@@ -116,12 +228,30 @@ function Page() {
                 ]}
                 image = {["industry", "jpg", 1422, 800]}
             />
-            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>node</span>`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} w = "min-w-72 max-w-72" h = "h-70"/>
-            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>safe</span>`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} w = "min-w-72 max-w-72" h = "h-70"/>
-            <div className = "px-4 bg-[#f7f7f7] border-b border-[#ececec]">
-                <div className = "container mx-auto justify-self-center flex justify-center items-center">
-                </div>
-            </div>
+            <Information
+                title = {`<span class = "text-blue-500">AMP</span><span>node</span>`}
+                description = "อุปกรณ์เซ็นเซอร์วัดกระแสไฟฟ้า"
+                content = {`
+                    <p>
+                        อุปกรณ์ IoT ขนาดเล็ก ทำหน้าที่ วัดกระแสไฟฟ้าส่งข้อมูลผ่าน WiFi แปลงค่ากระแสเป็นข้อมูลดิจิทัลแล้วส่งไปยัง AMPsafe API ผ่านอินเทอร์เน็ต โดยอุปกรณ์ประกอบไปด้วย CT sensor สำหรับวัดกระเเสไฟฟ้าเเละ microcontroller (ESP32) สำหรับประมวลผล
+                    </p>
+                `}
+                link = {[
+                    {
+                        name: "How to Use",
+                        link: "/#AMPnode"
+                    },
+                    {
+                        name: "FAQs",
+                        link: "/about%20us#faqs"
+                    }
+                ]}
+                image = {["ampnode", "png", 1146, 828]}
+                reverse
+            />
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>node</span>`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} w = "min-w-72 max-w-72" h = "h-70" id = "AMPnode"/>
+            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>safe</span>`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} w = "min-w-72 max-w-72" h = "h-70" id = "AMPsafe"/>
+            <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70"/>
             <Footer home/>
         </div>
     );

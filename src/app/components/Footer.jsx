@@ -9,7 +9,7 @@ import { useSession } from "next-auth/react";
 // import from components
 import FooterSection from "./FooterSection";
 
-function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, developers, models }) {
+function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, models }) {
     const { data: session } = useSession();
     
     const [quickLink, setQuickLink] = useState(false);
@@ -51,8 +51,9 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, d
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
                         <FooterSection name = "Information" onClick = {() => setInformation(!information)} rotate = {information}/>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${information ? "max-md:flex" : "max-md:hidden"}`}>
-                            <Link href = "/about%20us#faqs" className = {`${faqs && "text-white"}`}>FAQs</Link>
-                            <Link href = "/about%20us#developers" className = {`${developers && "text-white"}`}>Developers</Link>
+                            <Link href = "/about%20us#developers" className = {`${aboutUs && "text-white"}`}>Developers</Link>
+                            <Link href = "/about%20us#faqs" className = {`${aboutUs && "text-white"}`}>FAQs</Link>
+                            <Link href = "/about%20us#software" className = {`${aboutUs && "text-white"}`}>Software We Use</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
@@ -69,9 +70,9 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, faqs, d
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
                         <FooterSection name = "Contact Info" onClick = {() => setContactInfo(!contactInfo)} rotate = {contactInfo}/>
                         <div className = {`flex flex-col gap-2 text-xs font-medium text-[#9497a1] max-md:pl-4 ${contactInfo ? "max-md:flex" : "max-md:hidden"}`}>
-                            <p>vachirasawin.mah@gmail.com</p>
-                            <p>possavee.mee@sk-thonburi.ac.th</p>
-                            <p>kullamas.kae@sk-thonburi.ac.th</p>
+                            <Link href = "/about%20us#0" className = {`${aboutUs && "text-white"}`}>vachirasawin.mah@gmail.com</Link>
+                            <Link href = "/about%20us#1" className = {`${aboutUs && "text-white"}`}>possavee.mee@sk-thonburi.ac.th</Link>
+                            <Link href = "/about%20us#2" className = {`${aboutUs && "text-white"}`}>kullamas.kae@sk-thonburi.ac.th</Link>
                         </div>
                     </div>
                 </div>

@@ -18,8 +18,8 @@ import Button from "../components/Button";
 import Message from "../components/Message";
 
 function Page() {
-    // const { data: session } = useSession();
-    const session = true
+    const { data: session } = useSession();
+    // const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
     const [historyCount, setHistoryCount] = useState([]);

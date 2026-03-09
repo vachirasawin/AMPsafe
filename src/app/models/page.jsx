@@ -142,7 +142,7 @@ function Page() {
 
     return (
         <div>
-            <Navbar/>
+            <Navbar models/>
             <TitleImage image = "/ai.jpg" title = "เปรียบเทียบโมเดลในการวิเคราะห์กระแสไฟฟ้า" relative/>
             {contentsModel.map((content, item) => (
                 <Information
