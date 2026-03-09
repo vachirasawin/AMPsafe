@@ -19,7 +19,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "bx bx-plus-circle bx-remove-padding"
+            symbol: "ri-add-circle-line"
         },
         {
             title: "Connect System",
@@ -30,7 +30,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "bx bx-minus-circle bx-remove-padding"
+            symbol: "ri-indeterminate-circle-line"
         },
         {
             title: "Add Device",
@@ -41,7 +41,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/dashboard#connect",
-            symbol: "fa-solid fa-key"
+            symbol: "ri-key-2-fill"
         }
     ]
 
@@ -77,7 +77,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/dashboard",
-            symbol: "bx bx-dashboard bx-remove-padding"
+            symbol: "ri-dashboard-line"
         },
         {
             title: "Export Datas",
@@ -88,7 +88,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "/dashboard#export",
-            symbol: "fa-solid fa-file"
+            symbol: "ri-file-chart-line"
         }
     ]
 

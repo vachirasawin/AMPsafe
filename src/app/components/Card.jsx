@@ -27,7 +27,7 @@ function Card({ contents, title, description, w, h, downloadType, downloadTitle 
                                             </div>
                                         </div>
                                     ) : content.symbol !== "-" && (
-                                        <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
+                                        <div className = "shadow-md border w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square text-xl">
                                             <i className = {content.symbol}></i>
                                         </div>
                                     )}

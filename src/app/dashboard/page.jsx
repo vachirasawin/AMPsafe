@@ -18,8 +18,8 @@ import Button from "../components/Button";
 import Message from "../components/Message";
 
 function Page() {
-    const { data: session } = useSession();
-    // const session = true
+    // const { data: session } = useSession();
+    const session = true
 
     const [contentsItem, setContentsItem] = useState([]);
     const [historyCount, setHistoryCount] = useState([]);
@@ -100,7 +100,7 @@ function Page() {
             count: contentsItem.filter(item => item.online).length,
             color: "text-[#4caf50]",
             bg: "bg-[#4caf50]",
-            symbol: "bx bx-wifi bx-remove-padding",
+            symbol: "ri-wifi-fill",
         },
         {
             name: "Offline Devices",
@@ -108,7 +108,7 @@ function Page() {
             count: contentsItem.filter(item => !item.online).length,
             color: "text-[#f55555]",
             bg: "bg-[#f55555]",
-            symbol: "bx bx-wifi-slash bx-remove-padding",
+            symbol: "ri-wifi-off-fill",
         }
     ]
 
@@ -191,7 +191,7 @@ function Page() {
                         <DoughnutDashboard contentsItem = {session ? contentsItem : []} contentsCount = {session ? contentsCount : []} session = {session}/>
                         <div className = "bg-white shadow-lg rounded-xl flex flex-col w-[20rem] max-md:w-full h-[28.5rem] max-md:h-[25.5rem] relative overflow-hidden scroll-mt-28" id = "export">
                             <div className = "absolute inset-0 flex flex-col justify-center items-center text-[#ececec] gap-2 pointer-events-none select-none z-0">
-                                <i className = "text-7xl fa-solid fa-file"></i>
+                                <i className = "text-7xl ri-file-chart-line"></i>
                                 <p className = "font-bold text-xl uppercase">Export Datas</p>
                             </div>
                             <div className = "p-8 pr-6 flex flex-col gap-4 w-full h-full relative z-10">
@@ -235,7 +235,7 @@ function Page() {
                                                 setKeyAdd(formatted);
                                                 resetAlert();
                                             }}
-                                            symbol = "fa-solid fa-key"
+                                            symbol = "ri-key-2-fill"
                                             noAction
                                         />
                                         <Input
@@ -248,7 +248,7 @@ function Page() {
                                                 setConfirmKeyAdd(formatted);
                                                 resetAlert();
                                             }}
-                                            symbol = "fa-solid fa-key"
+                                            symbol = "ri-key-2-fill"
                                             noAction
                                         />
                                         <div className = "flex gap-4 max-xxs:flex-col">
