@@ -147,6 +147,160 @@ function Page() {
         }
     ]
 
+    const contentsBusiness = [
+        {
+            title: "Key Partners",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>โรงงานผลิตฮาร์ดแวร์</p>
+                <p>ทีมวางระบบและติดตั้ง</p>
+                <p>ที่ปรึกษาด้านพลังงานช่วยแนะนำลูกค้า</p>
+                <p>ผู้ให้บริการ Server (AWS/Azure)</p>
+                <p>ค่ายมือถือสำหรับซิม IOT</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-handshake",
+            name: ""
+        },
+        {
+            title: "Key Activities",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>วิจัยและพัฒนา AI Model </p>
+                <p>พัฒนาและบริหารจัดการ Platform</p>
+                <p>จัดหาและควบคุมคุณภาพ Hardware</p>
+                <p>บริหารจัดการงานติดตั้งและพาร์ทเนอร์</p>
+                <p>วิเคราะห์ข้อมูลและให้คำปรึกษา</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-gears",
+            name: ""
+        },
+        {
+            title: "Value Proposition",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>วิเคราะห์และแจ้งเตือนความผิดปกติของเครื่องจักรล่วงหน้า</p>
+                <p>ใช้ AI เรียนรู้พฤติกรรมเฉพาะตัวของเครื่องจักรแต่ละเครื่อง</p>
+                <p>ข้อมูลที่เข้าใจง่ายแบบ Real-time</p>
+                <p>ช่วยยืดอายุการใช้งานเครื่องจักร </p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-microchip",
+            name: ""
+        },
+        {
+            title: "Customer Relationship",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>มีทีมซัพพอร์ตคอยให้คำแนะนำ</p>
+                <p>อัปเดตฟีเจอร์ AI และ Dashboard ใหม่ๆ</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-headset",
+            name: ""
+        },
+        {
+            title: "Cost Structures",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>ต้นทุนการผลิตฮาร์ดแวร์ (OEMs/ODMs)</p>
+                <p>ค่าจ้างติดตั้งหน้างาน (SI/Technician)</p>
+                <p>ค่าเช่าระบบ Cloud และการประมวลผลข้อมูล</p>
+                <p>เงินเดือนทีมพัฒนาและทีม Support</p>
+                <p>ค่าการตลาดและค่าคอมมิชชันพาร์ทเนอร์</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-sack-dollar",
+            name: ""
+        },
+        {
+            title: "Key Resource",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>ทีมวิศวกรผู้เชี่ยวชาญด้าน AI และ Software</p>
+                <p>อัลกอริทึมเฉพาะของ AMPSAFE</p>
+                <p>ฮาร์ดแวร์ ชุดอุปกรณ์ที่ใช้ติดตั้งหน้างาน</p>
+                <p>ระบบ Cloud</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-brain",
+            name: ""
+        },
+        {
+            title: "Channels",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>Social Media</p>
+                <p>การออกบูธในงานแสดงสินค้าอุตสาหกรรม</p>
+                <p>ทีมขายตรง</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-shop",
+            name: ""
+        },
+        {
+            title: "Customer Segment",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>โรงงานขนาดเล็ก–กลาง (SME)</p>
+                <p>โรงงานที่มีเครื่องจักรหลายตัว</p>
+                <p>โรงงานที่ค่าไฟเป็นต้นทุนหลัก</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-industry",
+            name: ""
+        },
+        {
+            title: "Revenue Streams",
+            image: "-",
+            extension: "-",
+            content: `
+                <p>จำหน่ายอุปกรณ์ IoT และ Current Sensors</p>
+                <p>ค่าบริการวางระบบไฟ เดินสายสัญญาณ และติดตั้งเซนเซอร์หน้างาน</p>
+                <p>Subscription รายเดือนสำหรับ Dashboard & AI</p>
+            `,
+            description: "",
+            width: "-",
+            height: "-",
+            link: "-",
+            symbol: "fa-solid fa-money-bills",
+            name: ""
+        },
+    ]
+
     const contentsSoftwareWeb = [
         {
             title: "Visual Studio Code",
@@ -701,9 +855,8 @@ function Page() {
                     />
                 ))}
             </div>
-            <div id = "faqs" className = "scroll-mt-24">
-                <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70"/>
-            </div>
+            <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70" id = "faqs"/>
+            <Card title = {`<span class = "text-blue-500">Business</span> Model`} description = "คำถามที่พบบ่อย" contents = {contentsBusiness} w = "min-w-84 max-w-84" h = "h-88" id = "business"/>
             <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftwareWeb} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
             <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนา AI" contents = {contentsSoftwareAI} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
             <Card title = {`<span class = "text-blue-500">Reference</span> Source`} description = "แหล่งอ้างอิง" contents = {contentsReference} w = "min-w-72 max-w-72" h = "h-60" id = "reference"/>
