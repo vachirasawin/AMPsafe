@@ -181,7 +181,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-gears",
+            symbol: "fa-regular fa-square-check",
             name: ""
         },
         {
@@ -198,7 +198,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-microchip",
+            symbol: "fa-regular fa-lightbulb",
             name: ""
         },
         {
@@ -231,7 +231,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-sack-dollar",
+            symbol: "fa-regular fa-file-lines",
             name: ""
         },
         {
@@ -264,7 +264,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-shop",
+            symbol: "fa-solid fa-truck-fast",
             name: ""
         },
         {
@@ -296,7 +296,7 @@ function Page() {
             width: "-",
             height: "-",
             link: "-",
-            symbol: "fa-solid fa-money-bills",
+            symbol: "fa-solid fa-sack-dollar",
             name: ""
         },
     ]
@@ -856,7 +856,7 @@ function Page() {
                 ))}
             </div>
             <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70" id = "faqs"/>
-            <Card title = {`<span class = "text-blue-500">Business</span> Model`} description = "คำถามที่พบบ่อย" contents = {contentsBusiness} w = "min-w-84 max-w-84" h = "h-88" id = "business"/>
+            <Card title = {`<span class = "text-blue-500">Business Model Canvas</span>`} description = "เครื่องมือวางแผนกลยุทธ์ธุรกิจ" contents = {contentsBusiness} w = "min-w-84 max-w-84" h = "h-88" id = "business"/>
             <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftwareWeb} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
             <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนา AI" contents = {contentsSoftwareAI} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
             <Card title = {`<span class = "text-blue-500">Reference</span> Source`} description = "แหล่งอ้างอิง" contents = {contentsReference} w = "min-w-72 max-w-72" h = "h-60" id = "reference"/>
