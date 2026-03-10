@@ -855,6 +855,7 @@ function Page() {
                     />
                 ))}
             </div>
+            <TitleImage image = "/industry.jpg" title = "ระบบตรวจจับความผิดปกติทางไฟฟ้าในเครื่องจักรอุตสาหกรรมด้วย AI"/>
             <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} id = "faqs"/>
             <Card title = {`<span class = "text-blue-500">Business Model Canvas</span>`} description = "เครื่องมือวางแผนกลยุทธ์ธุรกิจ" contents = {contentsBusiness} id = "business"/>
             <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftwareWeb} id = "software"/>
