@@ -147,7 +147,55 @@ function Page() {
         }
     ]
 
-    const contentsSoftware = [
+    const contentsSoftwareWeb = [
+        {
+            title: "Visual Studio Code",
+            image: "vscode",
+            extension: "png",
+            content: "IDE หลักในการเขียนโปรแกรมเพื่อพัฒนา Web Application",
+            description: "version 1.110.1",
+            width: "250",
+            height: "250",
+            link: "https://code.visualstudio.com/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "CSS",
+            image: "css",
+            extension: "png",
+            content: "ภาษามาตรฐานที่ใช้ในการกำหนดสไตล์และเลย์เอาต์เพื่อตกแต่งโครงสร้าง Website ให้สวยงาม",
+            description: "Cascading Style Sheets Level 3 (CSS3)",
+            width: "960",
+            height: "960",
+            link: "https://www.w3schools.com/css/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "JavaScript",
+            image: "js",
+            extension: "png",
+            content: "ภาษาโปรแกรมระดับสูงที่ใช้เพิ่มฟังก์ชันการทำงานและการโต้ตอบที่ซับซ้อนบน Website",
+            description: "ECMAScript 2024 (ES15) Runtime Standard",
+            width: "2360",
+            height: "2660",
+            link: "https://www.w3schools.com/js/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "JavaScript XML",
+            image: "js",
+            extension: "png",
+            content: "ส่วนขยายไวยากรณ์ของ JavaScript ที่ช่วยให้การเขียนโครงสร้าง UI ภายใน React ทำได้ง่ายและชัดเจน",
+            description: "JSX (JavaScript Syntax Extension) for React",
+            width: "2360",
+            height: "2660",
+            link: "https://www.w3schools.com/xml/",
+            symbol: "-",
+            name: ""
+        },
         {
             title: "Node.js",
             image: "nodejs",
@@ -381,7 +429,7 @@ function Page() {
             image: "vercel",
             extension: "png",
             content: "Cloud Platform สำหรับ Deploy และ Hosting เว็บไซต์ที่มีประสิทธิภาพสูง",
-            description: "version 47.0.5",
+            description: "Cloud Deployment Platform",
             width: "400",
             height: "400",
             link: "https://vercel.com/",
@@ -438,6 +486,204 @@ function Page() {
         }
     ]
 
+    const contentsSoftwareAI = [
+        {
+            title: "Visual Studio Code",
+            image: "vscode",
+            extension: "png",
+            content: "IDE หลักในการเขียนโปรแกรมเพื่อพัฒนา AI Model",
+            description: "version 1.110.1",
+            width: "250",
+            height: "250",
+            link: "https://code.visualstudio.com/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Jupyter Notebook",
+            image: "jupyter",
+            extension: "png",
+            content: "การทำ Data Exploration และทดลองสร้างโมเดล Isolation Forest แบบ Interactive",
+            description: "version 7.0.0",
+            width: "1280",
+            height: "1484",
+            link: "https://jupyter.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Python",
+            image: "python",
+            extension: "webp",
+            content: "ภาษาหลักที่ใช้ในการพัฒนาโครงสร้างของระบบ AI",
+            description: "version 3.13.9",
+            width: "1280",
+            height: "1280",
+            link: "https://www.python.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Pandas",
+            image: "pandas",
+            extension: "png",
+            content: "จัดการข้อมูล (Data Manipulation) เตรียมข้อมูลให้อยู่ในรูปแบบ Array ที่เหมาะสม",
+            description: "version 2.3.3",
+            width: "189",
+            height: "300",
+            link: "https://pandas.pydata.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "NumPy",
+            image: "numpy",
+            extension: "svg",
+            content: "คำนวณทางคณิตศาสตร์ประสิทธิภาพสูง และจัดการโครงสร้างข้อมูลแบบ Multi-dimensional Array",
+            description: "version 1.24.0",
+            width: "2336",
+            height: "2500",
+            link: "https://numpy.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Scikit-learn",
+            image: "scikitlearn",
+            extension: "png",
+            content: "Library หลักที่ใช้เรียกใช้โมเดล Isolation Forest เพื่อคำนวณหาค่า Anomaly Score และแบ่งแยกข้อมูลปกติออกจากความผิดปกติ",
+            description: "version 1.3.0",
+            width: "1280",
+            height: "691",
+            link: "https://scikit-learn.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "TensorFlow",
+            image: "tensorflow",
+            extension: "png",
+            content: "เสริมในส่วนของการวิเคราะห์ข้อมูลเชิงลึก (Deep Learning) หากมีการทำ Feature Extraction ที่ซับซ้อนก่อนส่งต่อให้โมเดล",
+            description: "version 2.13.0",
+            width: "960",
+            height: "1030",
+            link: "https://www.tensorflow.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Matplotlib",
+            image: "matplotlib",
+            extension: "png",
+            content: "สร้างกราฟเพื่อ Visualize ผลลัพธ์ของโมเดล",
+            description: "version ",
+            width: "250",
+            height: "250",
+            link: "https://matplotlib.org/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Flask",
+            image: "flask",
+            extension: "webp",
+            content: "Micro-framework ที่ใช้สร้าง REST API เพื่อรับ Data จาก Client และส่งผลการทำ Prediction กลับไป",
+            description: "version 3.0.0",
+            width: "300",
+            height: "300",
+            link: "https://flask.palletsprojects.com/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Flask-CORS",
+            image: "flask",
+            extension: "webp",
+            content: "จัดการเรื่อง Cross-Origin Resource Sharing เพื่อให้ Web Application ต่างโดเมนสามารถเรียกใช้ API ได้อย่างปลอดภัย",
+            description: "version 4.0.0",
+            width: "300",
+            height: "300",
+            link: "https://pypi.org/project/flask-cors/",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Pickle",
+            image: "pickle",
+            extension: "png",
+            content: "ใช้ Serialized ตัวโมเดล Isolation Forest ที่เทรนเสร็จแล้วให้เป็นไฟล์ เพื่อนำไป Load ใช้งานบน Production Server",
+            description: "built-in version",
+            width: "400",
+            height: "200",
+            link: "https://docs.python.org/3/library/pickle.html",
+            symbol: "-",
+            name: ""
+        },
+        {
+            title: "Railway",
+            image: "railway",
+            extension: "svg",
+            content: "Cloud Infrastructure ที่ใช้ในการ Deploy ตัว Flask API ขึ้นออนไลน์ เพื่อให้สามารถเข้าถึงผ่าน URL สาธารณะได้",
+            description: "Cloud Deployment Platform",
+            width: "1024",
+            height: "1024",
+            link: "https://railway.com/",
+            symbol: "-",
+            name: ""
+        }
+    ]
+
+    const contentsReference = [
+        {
+            title: "IEEE Industrial Electronics",
+            image: "-",
+            extension: "-",
+            content: "",
+            description: "Journal of Anomaly Detection in Industrial Systems",
+            width: "width",
+            height: "height",
+            link: "https://ieeexplore.ieee.org/document/10929676",
+            symbol: "fa-solid fa-book",
+            name: "Reference Source"
+        },
+        {
+            title: "IEA Energy Efficiency",
+            image: "-",
+            extension: "-",
+            content: "",
+            description: "International Energy Agency Report 2025",
+            width: "width",
+            height: "height",
+            link: "https://www.iea.org/reports/energy-efficiency-2025/industry",
+            symbol: "fa-solid fa-book",
+            name: "Reference Source"
+        },
+        {
+            title: "Business Model Canvas",
+            image: "-",
+            extension: "-",
+            content: "",
+            description: "JobsDB Career Advice & Business Strategy",
+            width: "width",
+            height: "height",
+            link: "https://th.jobsdb.com/th/career-advice/article/what-is-business-model-canvas",
+            symbol: "fa-solid fa-book",
+            name: "Reference Source"
+        },
+        {
+            title: "ML-based Motor Fault Detection",
+            image: "-",
+            extension: "-",
+            content: "",
+            description: "IEEE Xplore Research Paper (2025)",
+            width: "width",
+            height: "height",
+            link: "https://ieeexplore.ieee.org/document/10905706",
+            symbol: "fa-solid fa-book",
+            name: "Reference Source"
+        }
+    ]
+
     return (
         <div className = "scroll-mt-24">
             <Navbar aboutUs/>
@@ -458,7 +704,9 @@ function Page() {
             <div id = "faqs" className = "scroll-mt-24">
                 <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs} w = "min-w-72 max-w-72" h = "h-70"/>
             </div>
-            <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการสร้างเว็บแอปพลิเคชัน" contents = {contentsSoftware} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
+            <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนาเว็บแอปพลิเคชัน" contents = {contentsSoftwareWeb} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
+            <Card title = {`<span class = "text-blue-500">Software</span> We Use`} description = "ซอฟต์แวร์ที่ใช้ในการพัฒนา AI" contents = {contentsSoftwareAI} w = "min-w-72 max-w-72" h = "h-82" id = "software"/>
+            <Card title = {`<span class = "text-blue-500">Reference</span> Source`} description = "แหล่งอ้างอิง" contents = {contentsReference} w = "min-w-72 max-w-72" h = "h-60" id = "reference"/>
             <Footer aboutUs/>
         </div>
     );

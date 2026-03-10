@@ -54,6 +54,7 @@ function Footer({ home, aboutUs, signIn, signUp, dashboard, generateKey, models 
                             <Link href = "/about%20us#developers" className = {`${aboutUs && "text-white"}`}>Developers</Link>
                             <Link href = "/about%20us#faqs" className = {`${aboutUs && "text-white"}`}>FAQs</Link>
                             <Link href = "/about%20us#software" className = {`${aboutUs && "text-white"}`}>Software We Use</Link>
+                            <Link href = "/about%20us#reference" className = {`${aboutUs && "text-white"}`}>Reference Source</Link>
                         </div>
                     </div>
                     <div className = "flex flex-col gap-4 max-md:border-b border-[#f7f7f7] pb-4">
