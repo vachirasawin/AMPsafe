@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-function Card({ contents, title, description, w, h, downloadType, downloadTitle, id }) {
+function Card({ contents, title, description, downloadType, downloadTitle, id }) {
     return (
         <div className = "px-4 border-b border-[#ececec] bg-[#f7f7f7] scroll-mt-24" id = {id}>
             <div className = {`container mx-auto justify-self-center flex flex-col gap-8 max-md:gap-4 pt-24 max-md:pt-8 justify-center items-center`}>
@@ -18,8 +18,8 @@ function Card({ contents, title, description, w, h, downloadType, downloadTitle,
                 <div className = "flex overflow-x-auto styleScrollbar gap-4 pb-24 max-md:pb-8 text-[#171717] max-w-full">
                     {contents.map((content, index) => (
                         <div className = "flex flex-col" key = {index}>
-                            <div className = "shadow-lg bg-white rounded-lg">
-                                <div className = {`py-11 px-8 flex flex-col gap-7 ${w} ${h}`}>
+                            <div className = {`shadow-lg bg-white rounded-lg py-11 px-8 w-82 h-full flex flex-col gap-7`}>
+                                <div className = "h-full flex flex-col gap-7">
                                     {content.image !== "-" ? (
                                         <div className = "shadow-md border border-[#ececec] w-16 h-16 min-w-16 min-h-16 flex justify-center items-center rounded-xl aspect-square px-4">
                                             <div className = "w-8 h-8 relative">
@@ -42,12 +42,12 @@ function Card({ contents, title, description, w, h, downloadType, downloadTitle,
                                 {content.link !== "-" && (
                                     downloadType ? (
                                         downloadTitle ? (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : downloadTitle}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-white shadow-md border border-[#ececec] hover:border-blue-500 hover:bg-blue-500 hover:text-white transform duration-200 w-max h-max px-3 py-1 rounded-md text-sm font-[700] text-blue-500" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : downloadTitle}` }}></a>
                                         ) : (
-                                            <a download href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : content.title}` }}></a>
+                                            <a download href = {content.link} className = "flex justify-center items-center bg-white shadow-md border border-[#ececec] hover:border-blue-500 hover:bg-blue-500 hover:text-white transform duration-200 w-max h-max px-3 py-1 rounded-md text-sm font-[700] text-blue-500" dangerouslySetInnerHTML={{ __html: `Download ${content.name ? content.name : content.title}` }}></a>
                                         )
                                     ) : (
-                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-blue-500 border-2 border-blue-500 text-white hover:text-blue-500 hover:bg-white transition-all duration-200 rounded-b-lg h-10 text-sm font-medium" dangerouslySetInnerHTML={{ __html: `Go to ${content.name ? content.name : content.title}` }}></Link>
+                                        <Link target = "_blank" href = {content.link} className = "flex justify-center items-center bg-white shadow-md border border-[#ececec] hover:border-blue-500 hover:bg-blue-500 hover:text-white transform duration-200 w-max h-max px-3 py-1 rounded-md text-sm font-[700] text-blue-500" dangerouslySetInnerHTML={{ __html: `${content.name ? content.name : content.title}` }}></Link>
                                     )
                                 )}
                             </div>
