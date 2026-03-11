@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import TitleImage from "./components/TitleImage";
 import Information from "./components/Information";
 import Card from "./components/Card";
+import Subscription from "./components/Subscription";
 import Footer from "./components/Footer";
 
 function Page() {
@@ -93,114 +94,21 @@ function Page() {
         }
     ]
 
-    const contentsFAQs = [
+    const contentsSubscription = [
         {
-            title: "เหมาะกับโรงงานแบบไหน",
-            image: "-",
-            extension: "-",
-            content: "เหมาะกับโรงงานที่ใช้มอเตอร์ไฟฟ้าเป็นหลัก และต้องการลดการหยุดชะงักของการผลิต",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "-",
-            symbol: "-",
-            name: ""
+            title: "Free Trial",
+            price: ["$0", "$0"],
+            content: ["", "", ""]
         },
         {
-            title: "ระบบต้องบำรุงรักษาบ่อยไหม",
-            image: "-",
-            extension: "-",
-            content: "ระบบออกแบบมาให้ดูแลรักษาน้อยที่สุดโดยใช้ AMPnode อุปกรณ์ขนาดเล็กที่ติดตั้งกับเครื่องจักรโดยตรง ติดตั้งครั้งเดียวแล้วใช้งานได้ยาวนาน",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "-",
-            symbol: "-",
-            name: ""
+            title: "Professional",
+            price: ["$20", "$200"],
+            content: ["", "", ""]
         },
         {
-            title: "ระบบรองรับกี่เครื่อง",
-            image: "-",
-            extension: "-",
-            content: "รองรับการเชื่อมต่อได้ไม่จำกัดจำนวน เพียงติดตั้ง AMPnode 1 ตัวต่อ 1 เครื่องจักร แล้วกรอก Key ผ่านหน้า Dashboard ได้เลย",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "-",
-            symbol: "-",
-            name: ""
-        },
-        {
-            title: "วิธีการสมัครสมาชิก",
-            image: "-",
-            extension: "-",
-            content: "สมัครสมาชิกโดยการกรอกชื่อจริง email และรหัสผ่าน",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/sign%20up",
-            symbol: "-",
-            name: "Sign In"
-        },
-        {
-            title: "วิธีการติดต่อกับทีมงาน",
-            image: "-",
-            extension: "-",
-            content: "สามารถติดต่อกับทีมงานเพื่อให้คำแนะนำได้ผ่าน email ใน About Us",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/about%20us#developers",
-            symbol: "-",
-            name: "Developers"
-        },
-        {
-            title: "วิธีการเชื่อมต่อ AMPnode ด้วย Key",
-            image: "-",
-            extension: "-",
-            content: "สามารถกรอก Key ที่มาพร้อมกับ AMPnode ได้ในหน้า Dashboard เพื่อแสดงผล",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/dashboard#connect",
-            symbol: "-",
-            name: "Add Device"
-        },
-        {
-            title: "วิธีการดูข้อมูล",
-            image: "-",
-            extension: "-",
-            content: "สามารถดูข้อมูลผ่านการวิเคราะห์ด้วย AI ในหน้า Dashboard",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/dashboard",
-            symbol: "-",
-            name: "Dashboard"
-        },
-        {
-            title: "วิธีการลบการเชื่อมต่อ AMPnode",
-            image: "-",
-            extension: "-",
-            content: "สามารถลบการเชื่อมต่อ AMPnode ด้วยการกรอกชื่อที่ตั้งขึ้นเองในหน้า Dashboard",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/dashboard#delete",
-            symbol: "-",
-            name: "Delete Device"
-        },
-        {
-            title: "วิธีการส่งออกข้อมูลการวิเคราะห์ของ AI",
-            image: "-",
-            extension: "-",
-            content: "สามารถส่งออกข้อมูลการวิเคราะห์เพื่อนำไปใช้ต่อได้ในหน้า Dashboard",
-            description: "",
-            width: "-",
-            height: "-",
-            link: "/dashboard#export",
-            symbol: "-",
-            name: "Export Datas"
+            title: "Organization",
+            price: ["$50", "$500"],
+            content: ["", "", ""]
         }
     ]
 
@@ -249,9 +157,9 @@ function Page() {
                 image = {["ampnode", "png", 1146, 828]}
                 reverse
             />
-            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>node</span>`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} id = "AMPnode"/>
-            <Card title = {`<span>How to Use </span><span class = "text-blue-500">AMP</span><span>safe</span>`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} id = "AMPsafe"/>
-            <Card title = {`<span class = "text-blue-500">FAQs</span>`} description = "คำถามที่พบบ่อย" contents = {contentsFAQs}/>
+            <Card title = {`How to Use <span class = "text-blue-500">AMP</span>node`} description = "วิธีการใช้งาน AMPnode" contents = {contentsHowTuUseAMPnode} id = "AMPnode"/>
+            <Card title = {`How to Use <span class = "text-blue-500">AMP</span>safe`} description = "วิธีการใช้งาน AMPsafe" contents = {contentsHowToUseAMPsafe} id = "AMPsafe"/>
+            {/* <Subscription title = {`<span class = "text-blue-500">Pricing</span> Plans`} description = "แพ็กเกจราคา" contents = {contentsSubscription} id = "subscription"/> */}
             <Footer home/>
         </div>
     );
