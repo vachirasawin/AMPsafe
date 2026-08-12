@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 
 import ButtonInput from "../../input/ButtonInput";
 
-function DeleteCard({ data }) {
+function DeleteLink({ data }) {
     const [isDelete, setIsDelete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
@@ -13,7 +13,7 @@ function DeleteCard({ data }) {
     const handleDelete = async () => {
         setIsLoading(true);
         try {
-            const response = await fetch(`/api/card/deleteCard/${data._id}`, {
+            const response = await fetch(`/api/link/deleteLink/${data._id}`, {
                 method: "DELETE",
             });
 
@@ -21,11 +21,11 @@ function DeleteCard({ data }) {
                 setIsDelete(false);
                 router.refresh();
             } else {
-                throw new Error("Failed to delete card.");
+                throw new Error("Failed to delete link.");
             }
         } catch (error) {
-            console.error("Error deleting card:", error);
-            alert("Failed to delete card.");
+            console.error("Error deleting link:", error);
+            alert("Failed to delete link.");
         } finally {
             setIsLoading(false);
         }
@@ -52,4 +52,4 @@ function DeleteCard({ data }) {
     )
 }
 
-export default DeleteCard
+export default DeleteLink

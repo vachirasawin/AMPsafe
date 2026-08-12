@@ -16,8 +16,8 @@ function EditCard({ data }) {
     
     const [symbol, setSymbol] = useState(data?.symbol || "");
     const [title, setTitle] = useState(data?.title || "");
-    const [urlLink, setUrlLink] = useState(data?.url?.[1] || "");
     const [urlName, setUrlName] = useState(data?.url?.[0] || "");
+    const [urlLink, setUrlLink] = useState(data?.url?.[1] || "");
     const [detail, setDetail] = useState(data?.detail || "");
     const [width, setWidth] = useState(data?.width || "");
     const [height, setHeight] = useState(data?.height || "");
@@ -31,12 +31,12 @@ function EditCard({ data }) {
         }
 
         try {
-            const response = await fetch(`/api/editCard/${data._id}`, {
+            const response = await fetch(`/api/card/editCard/${data._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ symbol, title, urlLink, urlName, detail, width, height })
+                body: JSON.stringify({ symbol, title, urlName, urlLink, detail, width, height })
             });
 
             if (response.ok) {

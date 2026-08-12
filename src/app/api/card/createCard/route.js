@@ -1,5 +1,5 @@
-import { connectDatabase } from "../../../../lib/database";
-import CreateCard from "../../../../models/createCard";
+import { connectDatabase } from "../../../../../lib/database";
+import CreateCard from "../../../../../models/createCard";
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 

@@ -16,8 +16,8 @@ function CreateCard() {
 
     const [symbol, setSymbol] = useState("");
     const [title, setTitle] = useState("");
-    const [urlLink, setUrlLink] = useState("");
     const [urlName, setUrlName] = useState("");
+    const [urlLink, setUrlLink] = useState("");
     const [detail, setDetail] = useState("");
     const [width, setWidth] = useState("");
     const [height, setHeight] = useState("");
@@ -25,8 +25,8 @@ function CreateCard() {
     const resetForm = () => {
         setSymbol("");
         setTitle("");
-        setUrlLink("");
         setUrlName("");
+        setUrlLink("");
         setDetail("");
         setWidth("");
         setHeight("");
@@ -41,12 +41,12 @@ function CreateCard() {
         }
 
         try {
-            const response = await fetch("/api/createCard", {
+            const response = await fetch("/api/card/createCard", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ symbol, title, urlLink, urlName, detail, width, height })
+                body: JSON.stringify({ symbol, title, urlName, urlLink, detail, width, height })
             })
 
             if (response.ok) {

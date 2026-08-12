@@ -25,7 +25,7 @@ function NavbarButton({ datas }) {
 
             <div className = {`text-sm font-medium fixed left-0 top-0 w-full h-[calc(100vh-6rem)] bg-white p-4 flex flex-col min-lg:hidden gap-8 -z-10 transition-all duration-500 ease-in-out border-b border-gray-200 ${isMenuOpen ? "translate-y-24" : "-translate-y-[calc(100vh-6rem)]"}`}>
                 {datas.map((data) => (
-                    <NavbarLink key = {data.id} href = {data.url[1]}>{data.url[0]}</NavbarLink>
+                    <NavbarLink key = {data._id} href = {data.url[1]}>{data.url[0]}</NavbarLink>
                 ))}
             </div>
         </div>

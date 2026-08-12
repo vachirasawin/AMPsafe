@@ -1,10 +1,16 @@
 import React from "react"
 
 import Navbar from "../components/navbar/Navbar"
+
 import { fetchCardsData } from "../utils/fetchCardsData"
 import EditCard from "../components/admin/card/EditCard";
 import DeleteCard from "../components/admin/card/DeleteCard";
 import CreateCard from "../components/admin/card/CreateCard";
+
+import { fetchNavbarLink } from "../utils/fetchNavbarLink";
+import EditLink from "../components/admin/link/EditLink";
+import DeleteLink from "../components/admin/link/DeleteLink";
+import CreateLink from "../components/admin/link/CreateLink";
 
 import ConfirmationAlert from "../components/alert/ConfirmationAlert";
 import ErrorAlert from "../components/alert/ErrorAlert";
@@ -15,6 +21,7 @@ import WarningAlert from "../components/alert/WarningAlert";
 
 async function page() {
     const cardsData = await fetchCardsData();
+    const navbarLink = await fetchNavbarLink();
 
     return (
         <div>
@@ -33,6 +40,24 @@ async function page() {
                                     <DeleteCard data = {data}/>
                                     <div className = "rounded-sm shadow-sm w-max h-7 flex justify-center items-center bg-white border border-gray-200 text-sm font-semibold text-neutral-900 px-4 py-1">
                                         {data.title}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className = "flex flex-col gap-4 bg-white p-8 rounded-xl shadow-md w-sm h-96">
+                        <div className = "w-full flex justify-between items-center gap-4">
+                            <p className = "text-xl font-bold">ข้อมูลลิงก์ใน Navbar</p>
+                            <CreateLink/>
+                        </div>
+                        <div className = "flex flex-col gap-2">
+                            {navbarLink.map((data) => (
+                                <div key = {data._id} className = "flex gap-2">
+                                    <EditLink data = {data}/>
+                                    <DeleteLink data = {data}/>
+                                    <div className = "rounded-sm shadow-sm w-max h-7 flex justify-center items-center bg-white border border-gray-200 text-sm font-semibold text-neutral-900 px-4 py-1">
+                                        {data.url[0]}
                                     </div>
                                 </div>
                             ))}

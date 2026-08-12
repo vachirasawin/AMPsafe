@@ -20,7 +20,7 @@ async function Navbar() {
                         </div>
                         <div className = "text-sm font-medium flex gap-12 max-lg:hidden">
                             {linksData.map((data) => (
-                                <NavbarLink key = {data.id} href = {data.url[1]}>{data.url[0]}</NavbarLink>
+                                <NavbarLink key = {data._id} href = {data.url[1]}>{data.url[0]}</NavbarLink>
                             ))}
                         </div>
                         <NavbarButton datas = {linksData}/>
