@@ -6,6 +6,13 @@ import EditCard from "../components/admin/card/EditCard";
 import DeleteCard from "../components/admin/card/DeleteCard";
 import CreateCard from "../components/admin/card/CreateCard";
 
+import ConfirmationAlert from "../components/alert/ConfirmationAlert";
+import ErrorAlert from "../components/alert/ErrorAlert";
+import LoadingAlert from "../components/alert/LoadingAlert";
+import SuccessAlert from "../components/alert/SuccessAlert";
+import WarningAlert from "../components/alert/WarningAlert";
+
+
 async function page() {
     const cardsData = await fetchCardsData();
 

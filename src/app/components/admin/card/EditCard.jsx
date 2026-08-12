@@ -49,7 +49,7 @@ function EditCard({ data }) {
 
     return (
         <div className = "relative">
-            <div onClick = {() => setIsEdit(!isEdit)} className = "rounded-sm shadow-sm w-7 h-7 flex justify-center items-center bg-white border border-gray-200 text-[12px] font-semibold text-blue-500">
+            <div onClick = {() => setIsEdit(!isEdit)} className = "rounded-sm cursor-pointer shadow-sm w-7 h-7 flex justify-center items-center bg-white border border-gray-200 text-[12px] font-semibold text-blue-500">
                 <i className = "fa-solid fa-wrench"></i>
             </div>
 
@@ -59,19 +59,19 @@ function EditCard({ data }) {
                         <div className = "flex gap-4 max-lg:flex-col">
                             <div className = "flex flex-col gap-4">
                                 <TextInput symbol = "" title = "สัญลักษณ์ของข้อมูล" placeholder = "กรอกสัญลักษณ์ของข้อมูล" value = {symbol} onChange = {(e) => setSymbol(e.target.value)}/>
-                                <TextInput symbol = "" title = "หัวข้อของข้อมูล" placeholder = "กรอกหัวข้อของข้อมูล" value = {title} onChange = {(e) => setTitle(e.target.value)}/>
-                                <TextInput symbol = "" title = "ชื่อลิงก์ของข้อมูล" placeholder = "กรอกชื่อลิงก์ของข้อมูล" value = {urlLink} onChange = {(e) => setUrlLink(e.target.value)}/>
-                                <TextInput symbol = "" title = "ลิงก์ของข้อมูล" placeholder = "กรอกลิงก์ของข้อมูล" value = {urlName} onChange = {(e) => setUrlName(e.target.value)}/>
+                                <TextInput symbol = "" title = "หัวข้อของข้อมูล" placeholder = "กรอกหัวข้อของข้อมูล" value = {title} onChange = {(e) => setTitle(e.target.value)} request/>
+                                <TextInput symbol = "" title = "ชื่อลิงก์ของข้อมูล" placeholder = "กรอกชื่อลิงก์ของข้อมูล" value = {urlName} onChange = {(e) => setUrlLink(e.target.value)}/>
+                                <TextInput symbol = "" title = "ลิงก์ของข้อมูล" placeholder = "กรอกลิงก์ของข้อมูล" value = {urlLink} onChange = {(e) => setUrlName(e.target.value)}/>
                             </div>
-                            <TextareaInput symbol = "" title = "เนื้อหาของข้อมูล" placeholder = "กรอกเนื้อหาของข้อมูล" height = "h-[348px]" value = {detail} onChange = {(e) => setDetail(e.target.value)}/>
+                            <TextareaInput symbol = "" title = "เนื้อหาของข้อมูล" placeholder = "กรอกเนื้อหาของข้อมูล" height = "h-[348px]" value = {detail} onChange = {(e) => setDetail(e.target.value)} request/>
                         </div>
                         <div className = "flex gap-4 max-lg:flex-col">
-                            <TextInput symbol = "" title = "ความกว้างของกรอบข้อมูล" placeholder = "กรอกความกว้างของกรอบข้อมูล" value = {width} onChange = {(e) => setWidth(e.target.value)}/>
-                            <TextInput symbol = "" title = "ความสูงของกรอบข้อมูล" placeholder = "กรอกความสูงของกรอบข้อมูล" value = {height} onChange = {(e) => setHeight(e.target.value)}/>
+                            <TextInput symbol = "" title = "ความกว้างของกรอบข้อมูล" placeholder = "กรอกความกว้างของกรอบข้อมูล" value = {width} onChange = {(e) => setWidth(e.target.value)} request/>
+                            <TextInput symbol = "" title = "ความสูงของกรอบข้อมูล" placeholder = "กรอกความสูงของกรอบข้อมูล" value = {height} onChange = {(e) => setHeight(e.target.value)} request/>
                         </div>
                         <div className = "flex gap-4 w-full max-lg:flex-col">
-                            <ButtonInput title = "ยืนยันการแก้ไขข้อมูล" type = "submit" width = "w-1/2 max-lg:w-full"/>
-                            <ButtonInput title = "ยกเลิกการแก้ไขข้อมูล" type = "reset" width = "w-1/2 max-lg:w-full"/>
+                            <ButtonInput title = "ยืนยันการแก้ไขข้อมูล" type = "submit" width = "w-1/2 max-lg:w-full" color = "text-blue-500 hover:bg-blue-500"/>
+                            <ButtonInput title = "ยกเลิกการแก้ไขข้อมูล" type = "reset" width = "w-1/2 max-lg:w-full" color = "text-red-500 hover:bg-red-500"/>
                         </div>
                     </form>
                 </div>
