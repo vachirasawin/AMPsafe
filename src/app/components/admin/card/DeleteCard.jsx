@@ -39,7 +39,7 @@ function DeleteCard({ data }) {
 
             {isDelete && (
                 <div className = "fixed top-24 left-0 w-screen h-[calc(100vh-6rem)] bg-neutral-900/80 z-30 flex justify-center items-center max-lg:items-start max-lg:py-4 overflow-y-auto styleScrollbar">
-                    <form onSubmit = {handleDelete} onReset = {() => setIsDelete(!isDelete)} className = "bg-white p-8 rounded-xl shadow-md flex flex-col gap-4">
+                    <form onSubmit = {handleDelete} onReset = {() => setIsDelete(!isDelete)} className = "bg-white p-8 max-lg:p-4 rounded-xl shadow-md flex flex-col gap-4">
                         <p className = "text-lg font-bold max-lg:w-72">ยืนยันที่จะลบข้อมูลนี้หรือไม่</p>
                         <div className = "flex gap-4 w-md max-lg:flex-col max-lg:w-full">
                             <ButtonInput title = "ยืนยันการลบข้อมูล" type = "submit" width = "w-1/2 max-lg:w-full" color = "text-red-500 hover:bg-red-500"/>

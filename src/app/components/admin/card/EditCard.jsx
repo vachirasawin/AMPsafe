@@ -7,8 +7,11 @@ import TextInput from "../../input/TextInput";
 import TextareaInput from "../../input/TextareaInput";
 import ButtonInput from "../../input/ButtonInput";
 
+import WarningAlert from "../../alert/WarningAlert";
+
 function EditCard({ data }) {
     const [isEdit, setIsEdit] = useState(false);
+    const [isWarning, setIsWarning] = useState(false);
     const router = useRouter();
     
     const [symbol, setSymbol] = useState(data?.symbol || "");
@@ -23,7 +26,7 @@ function EditCard({ data }) {
         e.preventDefault();
 
         if (!title || !detail || !width || !height) {
-            alert("Please complete all inputs.");
+            setIsWarning(true);
             return;
         }
 
@@ -55,7 +58,7 @@ function EditCard({ data }) {
 
             {isEdit && (
                 <div className = "fixed top-24 left-0 w-screen h-[calc(100vh-6rem)] bg-neutral-900/80 z-30 flex justify-center items-center max-lg:items-start max-lg:py-4 overflow-y-auto styleScrollbar">
-                    <form onSubmit = {handleSubmit} onReset = {() => setIsEdit(!isEdit)} className = "bg-white p-8 rounded-xl shadow-md flex flex-col gap-4">
+                    <form onSubmit = {handleSubmit} onReset = {() => setIsEdit(!isEdit)} className = "bg-white p-8 max-lg:p-4 rounded-xl shadow-md flex flex-col gap-4">
                         <div className = "flex gap-4 max-lg:flex-col">
                             <div className = "flex flex-col gap-4">
                                 <TextInput symbol = "" title = "สัญลักษณ์ของข้อมูล" placeholder = "กรอกสัญลักษณ์ของข้อมูล" value = {symbol} onChange = {(e) => setSymbol(e.target.value)}/>
@@ -69,12 +72,16 @@ function EditCard({ data }) {
                             <TextInput symbol = "" title = "ความกว้างของกรอบข้อมูล" placeholder = "กรอกความกว้างของกรอบข้อมูล" value = {width} onChange = {(e) => setWidth(e.target.value)} request/>
                             <TextInput symbol = "" title = "ความสูงของกรอบข้อมูล" placeholder = "กรอกความสูงของกรอบข้อมูล" value = {height} onChange = {(e) => setHeight(e.target.value)} request/>
                         </div>
-                        <div className = "flex gap-4 w-full max-lg:flex-col">
+                        <div className = "flex gap-4 max-lg:flex-col">
                             <ButtonInput title = "ยืนยันการแก้ไขข้อมูล" type = "submit" width = "w-1/2 max-lg:w-full" color = "text-blue-500 hover:bg-blue-500"/>
                             <ButtonInput title = "ยกเลิกการแก้ไขข้อมูล" type = "reset" width = "w-1/2 max-lg:w-full" color = "text-red-500 hover:bg-red-500"/>
                         </div>
                     </form>
                 </div>
+            )}
+
+            {isWarning && (
+                <WarningAlert title = "กรอกข้อมูลไม่ครบถ้วน" detail = "กรุณากรอกข้อมูลในช่องที่มีเครื่องหมายสำคัญให้ครบถ้วนก่อนยืนยัน" button = "ตกลงเพื่อแก้ไข" onClose = {() => setIsWarning(false)}/>
             )}
         </div>
     )

@@ -17,7 +17,7 @@ function TextInput({ symbol, title, placeholder, value, onChange, request }) {
                         <i className = {symbol}></i>
                     </div>
                 )}
-                <input value = {value} onChange = {onChange} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} className = {`w-full h-12 py-[13px] border ${isFocus ? "border-blue-500" : "border-gray-200"} ${symbol ? "rounded-r-sm" : "rounded-sm"} outline-none text-sm font-medium px-4 transition-colors duration-200`} placeholder = {placeholder}/>
+                <input type = "text" value = {value} onChange = {onChange} onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)} className = {`w-full h-12 py-[13px] border ${isFocus ? "border-blue-500" : "border-gray-200"} ${symbol ? "rounded-r-sm" : "rounded-sm"} outline-none text-sm font-medium px-4 transition-colors duration-200`} placeholder = {placeholder}/>
             </div>
         </div>
     )
