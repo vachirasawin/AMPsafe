@@ -1,6 +1,7 @@
 import { connectDatabase } from "../../../../lib/database";
 import CreateCard from "../../../../models/createCard";
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 
 export async function POST(request) {
     try {
@@ -9,6 +10,9 @@ export async function POST(request) {
         await connectDatabase();
 
         const newCard = await CreateCard.create({ symbol, title, url: [urlName, urlLink], detail, width, height });
+
+        revalidatePath("/");
+        revalidatePath("/admin");
 
         return NextResponse.json({ message: "Card created.", data: newCard }, { status: 201 });
     } catch (error) {
