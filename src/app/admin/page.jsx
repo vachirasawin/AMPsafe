@@ -12,16 +12,19 @@ import EditLink from "../components/admin/link/EditLink";
 import DeleteLink from "../components/admin/link/DeleteLink";
 import CreateLink from "../components/admin/link/CreateLink";
 
+import { fetchUserData } from "../utils/fetchUserData";
+import EditUser from "../components/admin/user/EditUser";
+
 import ConfirmationAlert from "../components/alert/ConfirmationAlert";
 import ErrorAlert from "../components/alert/ErrorAlert";
 import LoadingAlert from "../components/alert/LoadingAlert";
 import SuccessAlert from "../components/alert/SuccessAlert";
 import WarningAlert from "../components/alert/WarningAlert";
 
-
 async function page() {
     const cardsData = await fetchCardsData();
     const navbarLink = await fetchNavbarLink();
+    const userData = await fetchUserData();
 
     return (
         <div>
@@ -58,6 +61,21 @@ async function page() {
                                     <DeleteLink data = {data}/>
                                     <div className = "rounded-sm shadow-sm w-max h-7 flex justify-center items-center bg-white border border-gray-200 text-sm font-semibold text-neutral-900 px-4 py-1">
                                         {data.url[0]}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className = "flex flex-col gap-4 bg-white p-8 rounded-xl shadow-md w-sm h-96">
+                        <p className = "text-xl font-bold">ข้อมูลผู้ใช้งานในระบบ</p>
+                        <div className = "flex flex-col gap-2">
+                            {userData.map((data) => (
+                                <div key = {data._id} className = "flex gap-2">
+                                    <EditUser data = {data}/>
+                                    <DeleteLink data = {data}/>
+                                    <div className = "rounded-sm shadow-sm w-max h-7 flex justify-center items-center bg-white border border-gray-200 text-sm font-semibold text-neutral-900 px-4 py-1">
+                                        {data.username}
                                     </div>
                                 </div>
                             ))}

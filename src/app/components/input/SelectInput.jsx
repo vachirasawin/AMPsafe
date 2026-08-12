@@ -6,7 +6,7 @@ function SelectInput({ title, data = [], value, onChange, request }) {
     const [isFocus, setIsFocus] = useState(false);
 
     return (
-        <div className = "flex flex-col gap-2 w-72">
+        <div className = "flex flex-col gap-2 w-full">
             <div className = "w-full flex justify-between items-center gap-4">
                 <p className = "text-lg font-bold">{title}</p>
                 {request && (<i className = "fa-solid fa-asterisk text-red-500 text-[8px]"></i>)}

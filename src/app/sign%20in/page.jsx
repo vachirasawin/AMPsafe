@@ -1,7 +1,7 @@
 import React from "react"
 
 import Navbar from "../components/navbar/Navbar"
-import SignIn from "../components/authentication/SignIn"
+import SignIn from "../components/auth/SignIn"
 
 function page() {
     return (

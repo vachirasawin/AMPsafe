@@ -11,8 +11,12 @@ import WarningAlert from "../../alert/WarningAlert";
 
 function CreateCard() {
     const [isCreate, setIsCreate] = useState(false);
-    const [isWarning, setIsWarning] = useState(false);
     const router = useRouter();
+    
+    const [isWarning, setIsWarning] = useState(false);
+    const [warningTitle, setWarningTitle] = useState("");
+    const [warningDetail, setWarningDetail] = useState("");
+    const [warningButton, setWarningButton] = useState("");
 
     const [symbol, setSymbol] = useState("");
     const [title, setTitle] = useState("");
@@ -37,6 +41,9 @@ function CreateCard() {
 
         if (!title || !detail || !width || !height) {
             setIsWarning(true);
+            setWarningTitle("กรอกข้อมูลไม่ครบถ้วน");
+            setWarningDetail("กรุณากรอกข้อมูลในช่องที่มีเครื่องหมายสำคัญให้ครบถ้วนก่อนยืนยัน");
+            setWarningButton("ตกลงเพื่อแก้ไข");
             return;
         }
 
@@ -92,7 +99,7 @@ function CreateCard() {
             )}
 
             {isWarning && (
-                <WarningAlert title = "กรอกข้อมูลไม่ครบถ้วน" detail = "กรุณากรอกข้อมูลในช่องที่มีเครื่องหมายสำคัญให้ครบถ้วนก่อนยืนยัน" button = "ตกลงเพื่อแก้ไข" onClose = {() => setIsWarning(false)}/>
+                <WarningAlert title = {warningTitle} detail = {warningDetail} button = {warningButton} onClose = {() => setIsWarning(false)}/>
             )}
         </div>
     )

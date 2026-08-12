@@ -1,11 +1,38 @@
 "use client"
 
+import React from "react"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react"
 
-function NavbarLink({ href, children }) {
+function NavbarLink({ href, access, children }) {
     const rawPathname = usePathname();
     const pathname = decodeURIComponent(rawPathname);
+
+    const { data: session } = useSession();
+    const userRole = session?.user?.access;
+    const isLoggedIn = !!session?.user;
+
+    const checkAccess = () => {
+        switch (access) {
+            case "everyone":
+                return true;
+
+            case "guest":
+                return !isLoggedIn;
+
+            case "user":
+                return userRole === "user" || userRole === "admin";
+
+            case "admin":
+                return userRole === "admin";
+
+            default:
+                return true;
+        }
+    };
+
+    if (!checkAccess()) return null;
 
     const isAuthPage = href === "/sign in" && (pathname === "/sign in" || pathname === "/sign up");
     const isActive = pathname === href || isAuthPage;

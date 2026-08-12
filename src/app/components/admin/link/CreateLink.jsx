@@ -11,8 +11,12 @@ import WarningAlert from "../../alert/WarningAlert";
 
 function CreateLink() {
     const [isCreate, setIsCreate] = useState(false);
-    const [isWarning, setIsWarning] = useState(false);
     const router = useRouter();
+    
+    const [isWarning, setIsWarning] = useState(false);
+    const [warningTitle, setWarningTitle] = useState("");
+    const [warningDetail, setWarningDetail] = useState("");
+    const [warningButton, setWarningButton] = useState("");
 
     const options = [
         { value: "everyone", label: "ทุกคน" },
@@ -36,6 +40,9 @@ function CreateLink() {
 
         if (!urlName || !urlLink || !access) {
             setIsWarning(true);
+            setWarningTitle("กรอกข้อมูลไม่ครบถ้วน");
+            setWarningDetail("กรุณากรอกข้อมูลในช่องที่มีเครื่องหมายสำคัญให้ครบถ้วนก่อนยืนยัน");
+            setWarningButton("ตกลงเพื่อแก้ไข");
             return;
         }
 
@@ -79,7 +86,7 @@ function CreateLink() {
             )}
 
             {isWarning && (
-                <WarningAlert title = "กรอกข้อมูลไม่ครบถ้วน" detail = "กรุณากรอกข้อมูลในช่องที่มีเครื่องหมายสำคัญให้ครบถ้วนก่อนยืนยัน" button = "ตกลงเพื่อแก้ไข" onClose = {() => setIsWarning(false)}/>
+                <WarningAlert title = {warningTitle} detail = {warningDetail} button = {warningButton} onClose = {() => setIsWarning(false)}/>
             )}
         </div>
     )
