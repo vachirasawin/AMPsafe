@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { connectDatabase } from "../../../../../../../lib/database";
-import Authentication from "../../../../../../../models/authentication";
+import { revalidatePath } from "next/cache";
+import { connectDatabase } from "@/lib/database";
+import Authentication from "@/models/authentication";
 
 export async function PUT(req, context) {
     try {
@@ -20,7 +21,10 @@ export async function PUT(req, context) {
         const updatedUser = await Authentication.findByIdAndUpdate(
             id,
             { firstname, lastname, username, email, access },
-            { new: true }
+            { 
+                new: true,
+                runValidators: true
+            }
         );
 
         if (!updatedUser) {
@@ -30,6 +34,8 @@ export async function PUT(req, context) {
             );
         }
 
+        revalidatePath("/dashboard/users"); 
+
         return NextResponse.json(
             { message: "แก้ไขข้อมูลสำเร็จ", user: updatedUser },
             { status: 200 }
@@ -37,7 +43,7 @@ export async function PUT(req, context) {
     } catch (error) {
         console.error("Error updating user:", error);
         return NextResponse.json(
-            { message: "เกิดความผิดพลาดในการแก้ไขข้อมูล" },
+            { message: "เกิดความผิดพลาดในการแก้ไขข้อมูล", error: error.message },
             { status: 500 }
         );
     }
