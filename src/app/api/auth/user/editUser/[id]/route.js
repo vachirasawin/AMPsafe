@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import connectDatabase from "../../../../../../../lib/database";
+import { connectDatabase } from "../../../../../../../lib/database";
 import Authentication from "../../../../../../../models/authentication";
 
 export async function PUT(req, context) {
